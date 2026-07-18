@@ -1,0 +1,1355 @@
+2026-05-28 20:08:28,079 | INFO | ========== START: MASTER PIPELINE ==========
+2026-05-28 20:08:28,081 | INFO | --- Starting: SBA.gov ---
+2026-05-28 20:08:28,082 | INFO | ========== START: SBA.gov Scraper ==========
+2026-05-28 20:08:28,082 | INFO | Downloading SBA CSV...
+2026-05-28 20:09:11,590 | INFO | Found 0 records matching $500K+ filter
+2026-05-28 20:09:11,861 | INFO | SUCCESS: SBA.gov Scraper | Records added: 0
+2026-05-28 20:09:11,861 | INFO | ========== END: SBA.gov Scraper ==========
+
+2026-05-28 20:09:11,861 | INFO | --- Starting: Sunbiz FL ---
+2026-05-28 20:09:11,861 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-28 20:09:11,861 | INFO | Fetching: FOREIGN PROFIT
+2026-05-28 20:09:13,390 | INFO |   Failed FOREIGN PROFIT: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+PROFIT&ListPage=1&SearchActionType=GetList
+2026-05-28 20:09:13,390 | INFO | Fetching: FOREIGN NON-PROFIT
+2026-05-28 20:09:14,741 | INFO |   Failed FOREIGN NON-PROFIT: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+NON-PROFIT&ListPage=1&SearchActionType=GetList
+2026-05-28 20:09:14,743 | INFO | Fetching: FOREIGN LLC
+2026-05-28 20:09:16,585 | INFO |   Failed FOREIGN LLC: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+LLC&ListPage=1&SearchActionType=GetList
+2026-05-28 20:09:16,591 | INFO | Total foreign leads: 0
+2026-05-28 20:09:16,602 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-28 20:09:16,602 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-28 20:09:16,605 | INFO | --- Starting: Delaware SOS ---
+2026-05-28 20:09:16,606 | INFO | ========== START: Delaware SOS Scraper (Type 3) ==========
+2026-05-28 20:09:16,606 | INFO | Fetching Delaware LLC formations...
+2026-05-28 20:09:18,915 | INFO |   Delaware rows found: -1
+2026-05-28 20:09:18,925 | INFO | Fetching Florida LLC formations from Sunbiz...
+2026-05-28 20:09:20,477 | INFO |   Sunbiz FL LLC error: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FL+LLC&ListPage=1&SearchActionType=GetList
+2026-05-28 20:09:20,482 | INFO | Combined leads before dedup/flagging: 0
+2026-05-28 20:09:20,482 | INFO |   Flagged repeat agents (90-day window): 0
+2026-05-28 20:09:20,488 | INFO | SUCCESS: Delaware SOS Scraper (Type 3) | Records added: 0
+2026-05-28 20:09:20,495 | INFO | ========== END: Delaware SOS Scraper (Type 3) ==========
+
+2026-05-28 20:09:20,495 | INFO | ==================================================
+2026-05-28 20:09:20,498 | INFO | PIPELINE SUMMARY
+2026-05-28 20:09:20,499 | INFO | ==================================================
+2026-05-28 20:09:20,542 | INFO | ==================================================
+2026-05-28 20:51:55,328 | INFO | ========== START: MASTER PIPELINE ==========
+2026-05-28 20:51:55,330 | INFO | --- Starting: SBA.gov ---
+2026-05-28 20:51:55,330 | INFO | ========== START: SBA.gov Scraper ==========
+2026-05-28 20:51:55,331 | INFO | Downloading SBA CSV...
+2026-05-28 20:52:26,358 | ERROR | FAILED: SBA.gov Scraper | Error: 
+2026-05-28 20:52:26,368 | ERROR | ========== END (with errors): SBA.gov Scraper ==========
+
+2026-05-28 20:52:26,370 | INFO | --- SBA.gov failed, continuing to next scraper ---
+2026-05-28 20:52:26,413 | INFO | --- Starting: Sunbiz FL ---
+2026-05-28 20:52:26,414 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-28 20:52:29,067 | INFO | Fetching: FOREIGN PROFIT
+2026-05-28 20:52:30,786 | INFO |   Failed FOREIGN PROFIT: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+PROFIT&ListPage=1&SearchActionType=GetList
+2026-05-28 20:52:30,788 | INFO | Fetching: FOREIGN NON PROFIT
+2026-05-28 20:52:32,428 | INFO |   Failed FOREIGN NON PROFIT: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+NON+PROFIT&ListPage=1&SearchActionType=GetList
+2026-05-28 20:52:32,433 | INFO | Fetching: FOREIGN LLC
+2026-05-28 20:52:33,828 | INFO |   Failed FOREIGN LLC: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+LLC&ListPage=1&SearchActionType=GetList
+2026-05-28 20:52:33,829 | INFO | Total foreign leads: 0
+2026-05-28 20:52:33,833 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-28 20:52:33,833 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-28 20:52:33,834 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-28 20:52:33,836 | INFO | --- Starting: Delaware SOS ---
+2026-05-28 20:52:33,836 | INFO | ========== START: Delaware SOS Scraper (Type 3) ==========
+2026-05-28 20:52:33,837 | INFO | Fetching Delaware LLC formations...
+2026-05-28 20:52:36,440 | INFO |   Delaware rows found: -1
+2026-05-28 20:52:36,447 | INFO | Fetching Florida LLC formations from Sunbiz...
+2026-05-28 20:52:37,934 | INFO |   Sunbiz FL LLC error: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FL+LLC&ListPage=1&SearchActionType=GetList
+2026-05-28 20:52:37,936 | INFO | Combined leads before dedup/flagging: 0
+2026-05-28 20:52:37,936 | INFO |   Flagged repeat agents (90-day window): 0
+2026-05-28 20:52:37,936 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-28 20:52:37,936 | INFO | SUCCESS: Delaware SOS Scraper (Type 3) | Records added: 0
+2026-05-28 20:52:37,936 | INFO | ========== END: Delaware SOS Scraper (Type 3) ==========
+
+2026-05-28 20:52:37,936 | INFO | ==================================================
+2026-05-28 20:52:37,936 | INFO | PIPELINE SUMMARY
+2026-05-28 20:52:37,936 | INFO | ==================================================
+2026-05-28 20:52:37,942 | INFO |   SBA.gov: [FAIL] Failed: 
+2026-05-28 20:52:37,942 | INFO |   Sunbiz FL: [OK] Success
+2026-05-28 20:52:37,942 | INFO |   Delaware SOS: [OK] Success
+2026-05-28 20:52:37,944 | INFO | ==================================================
+2026-05-29 10:47:48,876 | INFO | ========== START: MASTER PIPELINE ==========
+2026-05-29 10:47:48,892 | INFO | --- Starting: SBA.gov ---
+2026-05-29 10:47:48,892 | INFO | ========== START: SBA.gov Scraper ==========
+2026-05-29 10:47:48,892 | INFO | Downloading SBA CSV...
+2026-05-29 10:48:22,449 | INFO | Found 0 records matching $500K+ filter
+2026-05-29 10:48:22,533 | INFO | Airtable -> Added: 0 | Skipped (duplicates): 0
+2026-05-29 10:48:22,534 | INFO | SUCCESS: SBA.gov Scraper | Records added: 0
+2026-05-29 10:48:22,534 | INFO | ========== END: SBA.gov Scraper ==========
+
+2026-05-29 10:48:22,534 | INFO | --- Starting: Sunbiz FL ---
+2026-05-29 10:48:22,535 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-29 10:48:24,516 | INFO | Fetching: FOREIGN PROFIT
+2026-05-29 10:48:25,313 | INFO |   Failed FOREIGN PROFIT: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+PROFIT&ListPage=1&SearchActionType=GetList
+2026-05-29 10:48:25,315 | INFO | Fetching: FOREIGN NON PROFIT
+2026-05-29 10:48:26,148 | INFO |   Failed FOREIGN NON PROFIT: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+NON+PROFIT&ListPage=1&SearchActionType=GetList
+2026-05-29 10:48:26,164 | INFO | Fetching: FOREIGN LLC
+2026-05-29 10:48:26,961 | INFO |   Failed FOREIGN LLC: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+LLC&ListPage=1&SearchActionType=GetList
+2026-05-29 10:48:26,963 | INFO | Total foreign leads: 0
+2026-05-29 10:48:26,963 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-29 10:48:26,963 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-29 10:48:26,963 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-29 10:48:26,963 | INFO | --- Starting: Delaware SOS ---
+2026-05-29 10:48:26,963 | INFO | ========== START: Delaware SOS Scraper (Type 3) ==========
+2026-05-29 10:48:26,963 | INFO | Fetching Delaware LLC formations...
+2026-05-29 10:48:28,710 | INFO |   Delaware rows found: -1
+2026-05-29 10:48:28,710 | INFO | Fetching Florida LLC formations from Sunbiz...
+2026-05-29 10:48:29,610 | INFO |   Sunbiz FL LLC error: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FL+LLC&ListPage=1&SearchActionType=GetList
+2026-05-29 10:48:29,610 | INFO | Combined leads before dedup/flagging: 0
+2026-05-29 10:48:29,610 | INFO |   Flagged repeat agents (90-day window): 0
+2026-05-29 10:48:29,610 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-29 10:48:29,610 | INFO | SUCCESS: Delaware SOS Scraper (Type 3) | Records added: 0
+2026-05-29 10:48:29,610 | INFO | ========== END: Delaware SOS Scraper (Type 3) ==========
+
+2026-05-29 10:48:29,610 | INFO | ==================================================
+2026-05-29 10:48:29,610 | INFO | PIPELINE SUMMARY
+2026-05-29 10:48:29,610 | INFO | ==================================================
+2026-05-29 10:48:29,610 | INFO |   SBA.gov: [OK] Success
+2026-05-29 10:48:29,610 | INFO |   Sunbiz FL: [OK] Success
+2026-05-29 10:48:29,610 | INFO |   Delaware SOS: [OK] Success
+2026-05-29 10:48:29,610 | INFO | ==================================================
+2026-05-29 11:05:10,067 | INFO | ========== START: MASTER PIPELINE ==========
+2026-05-29 11:05:10,067 | INFO | --- Starting: SBA.gov ---
+2026-05-29 11:05:10,067 | INFO | ========== START: SBA.gov Scraper ==========
+2026-05-29 11:05:10,067 | INFO | Downloading SBA CSV...
+2026-05-29 11:05:46,190 | INFO | SBA columns: ['asofdate', 'program', 'locationid', 'borrname', 'borrstreet', 'borrcity', 'borrstate', 'borrzip', 'bankname', 'bankfdicnumber']
+2026-05-29 11:05:47,489 | INFO | Found 102146 records matching $500K+ filter
+2026-05-29 11:05:49,802 | ERROR | FAILED: SBA.gov Scraper | Error: 401 Client Error: Unauthorized for url: https://api.airtable.com/v0/appsNkoJJqzZFfAW1/tblU9q6T3j1pyCWey?filterByFormula=AND%28%7BCompany+Name%7D%3D%27PERFECT+GAME+INCORPORATED%27%2C+%7BState%7D%3D%27IA%27%29&maxRecords=1
+2026-05-29 11:05:49,802 | ERROR | ========== END (with errors): SBA.gov Scraper ==========
+
+2026-05-29 11:05:49,802 | INFO | --- SBA.gov failed, continuing to next scraper ---
+2026-05-29 11:05:50,033 | INFO | --- Starting: Sunbiz FL ---
+2026-05-29 11:05:50,034 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-29 11:05:51,953 | INFO | Fetching: FOREIGN PROFIT
+2026-05-29 11:05:52,758 | INFO |   Failed FOREIGN PROFIT: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+PROFIT&ListPage=1&SearchActionType=GetList
+2026-05-29 11:05:52,759 | INFO | Fetching: FOREIGN NON PROFIT
+2026-05-29 11:05:53,562 | INFO |   Failed FOREIGN NON PROFIT: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+NON+PROFIT&ListPage=1&SearchActionType=GetList
+2026-05-29 11:05:53,567 | INFO | Fetching: FOREIGN LLC
+2026-05-29 11:05:54,467 | INFO |   Failed FOREIGN LLC: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+LLC&ListPage=1&SearchActionType=GetList
+2026-05-29 11:05:54,467 | INFO | Total foreign leads: 0
+2026-05-29 11:05:54,467 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-29 11:05:54,467 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-29 11:05:54,467 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-29 11:05:54,467 | INFO | --- Starting: Delaware SOS ---
+2026-05-29 11:05:54,467 | INFO | ========== START: Delaware SOS Scraper (Type 3) ==========
+2026-05-29 11:05:54,467 | INFO | Fetching Delaware LLC formations...
+2026-05-29 11:05:56,209 | INFO |   Delaware rows found: -1
+2026-05-29 11:05:56,211 | INFO | Fetching Florida LLC formations from Sunbiz...
+2026-05-29 11:05:56,927 | INFO |   Sunbiz FL LLC error: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FL+LLC&ListPage=1&SearchActionType=GetList
+2026-05-29 11:05:56,928 | INFO | Combined leads before dedup/flagging: 0
+2026-05-29 11:05:56,929 | INFO |   Flagged repeat agents (90-day window): 0
+2026-05-29 11:05:56,929 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-29 11:05:56,929 | INFO | SUCCESS: Delaware SOS Scraper (Type 3) | Records added: 0
+2026-05-29 11:05:56,929 | INFO | ========== END: Delaware SOS Scraper (Type 3) ==========
+
+2026-05-29 11:05:56,929 | INFO | ==================================================
+2026-05-29 11:05:56,930 | INFO | PIPELINE SUMMARY
+2026-05-29 11:05:56,930 | INFO | ==================================================
+2026-05-29 11:05:56,930 | INFO |   SBA.gov: [FAIL] Failed: 401 Client Error: Unauthorized for url: https://api.airtable.com/v0/appsNkoJJqzZFfAW1/tblU9q6T3j1pyCWey?filterByFormula=AND%28%7BCompany+Name%7D%3D%27PERFECT+GAME+INCORPORATED%27%2C+%7BState%7D%3D%27IA%27%29&maxRecords=1
+2026-05-29 11:05:56,930 | INFO |   Sunbiz FL: [OK] Success
+2026-05-29 11:05:56,930 | INFO |   Delaware SOS: [OK] Success
+2026-05-29 11:05:56,931 | INFO | ==================================================
+2026-05-29 11:13:06,716 | INFO | ========== START: MASTER PIPELINE ==========
+2026-05-29 11:13:06,716 | INFO | --- Starting: SBA.gov ---
+2026-05-29 11:13:06,716 | INFO | ========== START: SBA.gov Scraper ==========
+2026-05-29 11:13:06,716 | INFO | Downloading SBA CSV...
+2026-05-29 11:13:42,386 | INFO | SBA columns: ['asofdate', 'program', 'locationid', 'borrname', 'borrstreet', 'borrcity', 'borrstate', 'borrzip', 'bankname', 'bankfdicnumber']
+2026-05-29 11:13:43,320 | INFO | Found 102146 records matching $500K+ filter
+2026-05-29 11:13:44,908 | ERROR | FAILED: SBA.gov Scraper | Error: 401 Client Error: Unauthorized for url: https://api.airtable.com/v0/appsNkoJJqzZFfAW1/tblU9q6T3j1pyCWey?filterByFormula=AND%28%7BCompany+Name%7D%3D%27PERFECT+GAME+INCORPORATED%27%2C+%7BState%7D%3D%27IA%27%29&maxRecords=1
+2026-05-29 11:13:44,908 | ERROR | ========== END (with errors): SBA.gov Scraper ==========
+
+2026-05-29 11:13:44,908 | INFO | --- SBA.gov failed, continuing to next scraper ---
+2026-05-29 11:13:45,087 | INFO | --- Starting: Sunbiz FL ---
+2026-05-29 11:13:45,087 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-29 11:13:46,843 | INFO | Fetching: FOREIGN PROFIT
+2026-05-29 11:13:47,575 | INFO |   Failed FOREIGN PROFIT: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+PROFIT&ListPage=1&SearchActionType=GetList
+2026-05-29 11:13:47,575 | INFO | Fetching: FOREIGN NON PROFIT
+2026-05-29 11:13:48,296 | INFO |   Failed FOREIGN NON PROFIT: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+NON+PROFIT&ListPage=1&SearchActionType=GetList
+2026-05-29 11:13:48,301 | INFO | Fetching: FOREIGN LLC
+2026-05-29 11:13:48,954 | INFO |   Failed FOREIGN LLC: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+LLC&ListPage=1&SearchActionType=GetList
+2026-05-29 11:13:48,954 | INFO | Total foreign leads: 0
+2026-05-29 11:13:48,954 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-29 11:13:48,954 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-29 11:13:48,954 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-29 11:13:48,954 | INFO | --- Starting: Delaware SOS ---
+2026-05-29 11:13:48,963 | INFO | ========== START: Delaware SOS Scraper (Type 3) ==========
+2026-05-29 11:13:48,963 | INFO | Fetching Delaware LLC formations...
+2026-05-29 11:13:50,700 | INFO |   Delaware rows found: -1
+2026-05-29 11:13:50,700 | INFO | Fetching Florida LLC formations from Sunbiz...
+2026-05-29 11:13:51,337 | INFO |   Sunbiz FL LLC error: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FL+LLC&ListPage=1&SearchActionType=GetList
+2026-05-29 11:13:51,337 | INFO | Combined leads before dedup/flagging: 0
+2026-05-29 11:13:51,337 | INFO |   Flagged repeat agents (90-day window): 0
+2026-05-29 11:13:51,337 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-29 11:13:51,337 | INFO | SUCCESS: Delaware SOS Scraper (Type 3) | Records added: 0
+2026-05-29 11:13:51,337 | INFO | ========== END: Delaware SOS Scraper (Type 3) ==========
+
+2026-05-29 11:13:51,337 | INFO | ==================================================
+2026-05-29 11:13:51,344 | INFO | PIPELINE SUMMARY
+2026-05-29 11:13:51,344 | INFO | ==================================================
+2026-05-29 11:13:51,344 | INFO |   SBA.gov: [FAIL] Failed: 401 Client Error: Unauthorized for url: https://api.airtable.com/v0/appsNkoJJqzZFfAW1/tblU9q6T3j1pyCWey?filterByFormula=AND%28%7BCompany+Name%7D%3D%27PERFECT+GAME+INCORPORATED%27%2C+%7BState%7D%3D%27IA%27%29&maxRecords=1
+2026-05-29 11:13:51,344 | INFO |   Sunbiz FL: [OK] Success
+2026-05-29 11:13:51,344 | INFO |   Delaware SOS: [OK] Success
+2026-05-29 11:13:51,344 | INFO | ==================================================
+2026-05-29 11:17:23,799 | INFO | ========== START: MASTER PIPELINE ==========
+2026-05-29 11:17:23,799 | INFO | --- Starting: SBA.gov ---
+2026-05-29 11:17:23,814 | INFO | ========== START: SBA.gov Scraper ==========
+2026-05-29 11:17:23,814 | INFO | Downloading SBA CSV...
+2026-05-29 11:17:56,853 | INFO | SBA columns: ['asofdate', 'program', 'locationid', 'borrname', 'borrstreet', 'borrcity', 'borrstate', 'borrzip', 'bankname', 'bankfdicnumber']
+2026-05-29 11:17:57,669 | INFO | Found 102146 records matching $500K+ filter
+2026-05-29 11:18:01,015 | ERROR | FAILED: SBA.gov Scraper | Error: 422 Client Error: Unprocessable Entity for url: https://api.airtable.com/v0/appsNkoJJqzZFfAW1/tblU9q6T3j1pyCWey?filterByFormula=AND%28%7BCompany+Name%7D%3D%27PERFECT+GAME+INCORPORATED%27%2C+%7BState%7D%3D%27IA%27%29&maxRecords=1
+2026-05-29 11:18:01,015 | ERROR | ========== END (with errors): SBA.gov Scraper ==========
+
+2026-05-29 11:18:01,015 | INFO | --- SBA.gov failed, continuing to next scraper ---
+2026-05-29 11:18:01,174 | INFO | --- Starting: Sunbiz FL ---
+2026-05-29 11:18:01,174 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-29 11:18:02,793 | INFO | Fetching: FOREIGN PROFIT
+2026-05-29 11:18:03,405 | INFO |   Failed FOREIGN PROFIT: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+PROFIT&ListPage=1&SearchActionType=GetList
+2026-05-29 11:18:03,405 | INFO | Fetching: FOREIGN NON PROFIT
+2026-05-29 11:18:04,018 | INFO |   Failed FOREIGN NON PROFIT: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+NON+PROFIT&ListPage=1&SearchActionType=GetList
+2026-05-29 11:18:04,018 | INFO | Fetching: FOREIGN LLC
+2026-05-29 11:18:04,630 | INFO |   Failed FOREIGN LLC: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+LLC&ListPage=1&SearchActionType=GetList
+2026-05-29 11:18:04,630 | INFO | Total foreign leads: 0
+2026-05-29 11:18:04,630 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-29 11:18:04,630 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-29 11:18:04,630 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-29 11:18:04,630 | INFO | --- Starting: Delaware SOS ---
+2026-05-29 11:18:04,630 | INFO | ========== START: Delaware SOS Scraper (Type 3) ==========
+2026-05-29 11:18:04,630 | INFO | Fetching Delaware LLC formations...
+2026-05-29 11:18:06,305 | INFO |   Delaware rows found: -1
+2026-05-29 11:18:06,305 | INFO | Fetching Florida LLC formations from Sunbiz...
+2026-05-29 11:18:06,927 | INFO |   Sunbiz FL LLC error: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FL+LLC&ListPage=1&SearchActionType=GetList
+2026-05-29 11:18:06,931 | INFO | Combined leads before dedup/flagging: 0
+2026-05-29 11:18:06,932 | INFO |   Flagged repeat agents (90-day window): 0
+2026-05-29 11:18:06,932 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-29 11:18:06,933 | INFO | SUCCESS: Delaware SOS Scraper (Type 3) | Records added: 0
+2026-05-29 11:18:06,933 | INFO | ========== END: Delaware SOS Scraper (Type 3) ==========
+
+2026-05-29 11:18:06,934 | INFO | ==================================================
+2026-05-29 11:18:06,935 | INFO | PIPELINE SUMMARY
+2026-05-29 11:18:06,935 | INFO | ==================================================
+2026-05-29 11:18:06,936 | INFO |   SBA.gov: [FAIL] Failed: 422 Client Error: Unprocessable Entity for url: https://api.airtable.com/v0/appsNkoJJqzZFfAW1/tblU9q6T3j1pyCWey?filterByFormula=AND%28%7BCompany+Name%7D%3D%27PERFECT+GAME+INCORPORATED%27%2C+%7BState%7D%3D%27IA%27%29&maxRecords=1
+2026-05-29 11:18:06,936 | INFO |   Sunbiz FL: [OK] Success
+2026-05-29 11:18:06,937 | INFO |   Delaware SOS: [OK] Success
+2026-05-29 11:18:06,937 | INFO | ==================================================
+2026-05-29 11:27:34,188 | INFO | ========== START: MASTER PIPELINE ==========
+2026-05-29 11:27:34,188 | INFO | --- Starting: SBA.gov ---
+2026-05-29 11:27:34,188 | INFO | ========== START: SBA.gov Scraper ==========
+2026-05-29 11:27:34,188 | INFO | Downloading SBA CSV...
+2026-05-29 11:28:05,564 | INFO | SBA columns: ['asofdate', 'program', 'locationid', 'borrname', 'borrstreet', 'borrcity', 'borrstate', 'borrzip', 'bankname', 'bankfdicnumber']
+2026-05-29 11:28:06,382 | INFO | Found 102146 records matching $500K+ filter
+2026-05-29 11:50:32,834 | INFO | ========== START: MASTER PIPELINE ==========
+2026-05-29 11:50:32,834 | INFO | --- Starting: SBA.gov ---
+2026-05-29 11:50:32,834 | INFO | ========== START: SBA.gov Scraper ==========
+2026-05-29 11:50:32,834 | INFO | Downloading SBA CSV...
+2026-05-29 11:51:07,704 | INFO | Total rows in CSV: 373981
+2026-05-29 11:51:08,688 | INFO | Found 1141 records from last 90 days matching $500K+
+2026-05-29 12:00:20,416 | INFO | ========== START: MASTER PIPELINE ==========
+2026-05-29 12:00:20,416 | INFO | --- Starting: SBA.gov ---
+2026-05-29 12:00:20,416 | INFO | ========== START: SBA.gov Scraper ==========
+2026-05-29 12:00:20,416 | INFO | Downloading SBA CSV...
+2026-05-29 12:00:55,075 | INFO | Total rows in CSV: 373981
+2026-05-29 12:00:56,436 | INFO | Found 1141 records from last 90 days matching $500K+
+2026-05-29 12:03:30,658 | INFO | Airtable -> Added: 921 | Skipped: 220
+2026-05-29 12:03:30,658 | INFO | SUCCESS: SBA.gov Scraper | Records added: 921
+2026-05-29 12:03:30,658 | INFO | ========== END: SBA.gov Scraper ==========
+
+2026-05-29 12:03:30,674 | INFO | --- Starting: Sunbiz FL ---
+2026-05-29 12:03:30,674 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-29 12:03:32,456 | INFO | Fetching: FOREIGN PROFIT
+2026-05-29 12:03:33,100 | INFO |   Failed FOREIGN PROFIT: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+PROFIT&ListPage=1&SearchActionType=GetList
+2026-05-29 12:03:33,100 | INFO | Fetching: FOREIGN NON PROFIT
+2026-05-29 12:03:33,773 | INFO |   Failed FOREIGN NON PROFIT: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+NON+PROFIT&ListPage=1&SearchActionType=GetList
+2026-05-29 12:03:33,773 | INFO | Fetching: FOREIGN LLC
+2026-05-29 12:03:34,418 | INFO |   Failed FOREIGN LLC: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FOREIGN+LLC&ListPage=1&SearchActionType=GetList
+2026-05-29 12:03:34,419 | INFO | Total foreign leads: 0
+2026-05-29 12:03:34,419 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-29 12:03:34,419 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-29 12:03:34,419 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-29 12:03:34,419 | INFO | --- Starting: Delaware SOS ---
+2026-05-29 12:03:34,419 | INFO | ========== START: Delaware SOS Scraper (Type 3) ==========
+2026-05-29 12:03:34,419 | INFO | Fetching Delaware LLC formations...
+2026-05-29 12:03:36,149 | INFO |   Delaware rows found: -1
+2026-05-29 12:03:36,151 | INFO | Fetching Florida LLC formations from Sunbiz...
+2026-05-29 12:03:36,760 | INFO |   Sunbiz FL LLC error: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FL+LLC&ListPage=1&SearchActionType=GetList
+2026-05-29 12:03:36,761 | INFO | Combined leads before dedup/flagging: 0
+2026-05-29 12:03:36,761 | INFO |   Flagged repeat agents (90-day window): 0
+2026-05-29 12:03:36,761 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-29 12:03:36,761 | INFO | SUCCESS: Delaware SOS Scraper (Type 3) | Records added: 0
+2026-05-29 12:03:36,762 | INFO | ========== END: Delaware SOS Scraper (Type 3) ==========
+
+2026-05-29 12:03:36,762 | INFO | ==================================================
+2026-05-29 12:03:36,762 | INFO | PIPELINE SUMMARY
+2026-05-29 12:03:36,762 | INFO | ==================================================
+2026-05-29 12:03:36,762 | INFO |   SBA.gov: [OK] Success
+2026-05-29 12:03:36,762 | INFO |   Sunbiz FL: [OK] Success
+2026-05-29 12:03:36,762 | INFO |   Delaware SOS: [OK] Success
+2026-05-29 12:03:36,762 | INFO | ==================================================
+2026-05-30 00:04:55,529 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-30 00:04:55,529 | INFO | ====== WebDriver manager ======
+2026-05-30 00:04:56,959 | INFO | Get LATEST chromedriver version for google-chrome
+2026-05-30 00:04:57,904 | INFO | There is no [win64] chromedriver "148.0.7778.178" for browser google-chrome "148.0.7778" in cache
+2026-05-30 00:04:58,433 | INFO | There is no [win64] chromedriver "148.0.7778.178" for browser google-chrome "148.0.7778" in cache
+2026-05-30 00:04:58,433 | INFO | Get LATEST chromedriver version for google-chrome
+2026-05-30 00:05:00,521 | INFO | WebDriver version 148.0.7778.178 selected
+2026-05-30 00:05:00,537 | INFO | Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/148.0.7778.178/win64/chromedriver-win64.zip
+2026-05-30 00:05:00,537 | INFO | About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/148.0.7778.178/win64/chromedriver-win64.zip
+2026-05-30 00:05:01,430 | INFO | Driver downloading response is 200
+2026-05-30 00:05:04,238 | INFO | Driver has been saved in cache [C:\Users\USER\.wdm\drivers\chromedriver\win64\148.0.7778.178]
+2026-05-30 00:05:05,133 | INFO |   Searching: Foreign Profit Corporation
+2026-05-30 00:05:07,981 | INFO |     Could not find dropdown option: Foreign Profit Corporation
+2026-05-30 00:05:07,981 | INFO |   -> 0 foreign leads from Foreign Profit Corporation
+2026-05-30 00:05:08,993 | INFO |   Searching: Foreign Non-Profit Corporation
+2026-05-30 00:05:09,629 | INFO |     Could not find dropdown option: Foreign Non-Profit Corporation
+2026-05-30 00:05:09,629 | INFO |   -> 0 foreign leads from Foreign Non-Profit Corporation
+2026-05-30 00:05:10,631 | INFO |   Searching: Foreign Limited Liability Co.
+2026-05-30 00:05:11,375 | INFO |     Could not find dropdown option: Foreign Limited Liability Co.
+2026-05-30 00:05:11,375 | INFO |   -> 0 foreign leads from Foreign Limited Liability Co.
+2026-05-30 00:05:14,574 | INFO | Total foreign leads: 0
+2026-05-30 00:05:14,574 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-30 00:05:14,574 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-30 00:05:14,574 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-30 00:30:44,309 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-30 00:30:48,005 | INFO | patching driver executable C:\Users\USER\appdata\roaming\undetected_chromedriver\undetected_chromedriver.exe
+2026-05-30 00:30:54,267 | ERROR | FAILED: Sunbiz.org Scraper (Type 2) | Error: Message: session not created: cannot connect to chrome at 127.0.0.1:51587
+from session not created: This version of ChromeDriver only supports Chrome version 149
+Current browser version is 148.0.7778.179; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x72f9c3+106c3]
+	undetected_chromedriver!GetHandleVerifier [0x72fa04+10704]
+	undetected_chromedriver!(No symbol) [0x52a830]
+	undetected_chromedriver!(No symbol) [0x566692]
+	undetected_chromedriver!(No symbol) [0x5656cc]
+	undetected_chromedriver!(No symbol) [0x55b7b5]
+	undetected_chromedriver!(No symbol) [0x55b5d6]
+	undetected_chromedriver!(No symbol) [0x5a1f8f]
+	undetected_chromedriver!(No symbol) [0x5a17a7]
+	undetected_chromedriver!(No symbol) [0x596026]
+	undetected_chromedriver!(No symbol) [0x569289]
+	undetected_chromedriver!(No symbol) [0x56a054]
+	undetected_chromedriver!GetHandleVerifier [0x9b44aa+2951aa]
+	undetected_chromedriver!GetHandleVerifier [0x9afb06+290806]
+	undetected_chromedriver!GetHandleVerifier [0x9cff3b+2b0c3b]
+	undetected_chromedriver!GetHandleVerifier [0x749e86+2ab86]
+	undetected_chromedriver!GetHandleVerifier [0x7511fd+31efd]
+	undetected_chromedriver!GetHandleVerifier [0x738388+19088]
+	undetected_chromedriver!GetHandleVerifier [0x738535+19235]
+	undetected_chromedriver!GetHandleVerifier [0x72120f+1f0f]
+	KERNEL32!BaseThreadInitThunk [0x75de5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77d9e12b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77d9e0b1+231]
+
+2026-05-30 00:30:54,267 | ERROR | ========== END (with errors): Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-30 00:30:54,377 | INFO | ensuring close
+2026-05-30 00:36:27,042 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-30 00:36:31,099 | INFO | patching driver executable C:\Users\USER\appdata\roaming\undetected_chromedriver\undetected_chromedriver.exe
+2026-05-30 00:36:34,968 | INFO |   Searching: 'foreign'
+2026-05-30 00:36:40,400 | INFO |     -1 results
+2026-05-30 00:36:41,403 | INFO |   Searching: 'international'
+2026-05-30 00:36:44,055 | INFO |     -1 results
+2026-05-30 00:36:45,057 | INFO |   Searching: 'global'
+2026-05-30 00:36:48,127 | INFO |     -1 results
+2026-05-30 00:36:49,129 | INFO |   Searching: 'worldwide'
+2026-05-30 00:36:52,268 | INFO |     -1 results
+2026-05-30 00:36:53,269 | INFO |   Searching: 'gmbh'
+2026-05-30 00:36:55,908 | INFO |     -1 results
+2026-05-30 00:36:56,918 | INFO |   Searching: 'ltd'
+2026-05-30 00:36:59,667 | INFO |     -1 results
+2026-05-30 00:37:00,680 | INFO |   Searching: 's.a.'
+2026-05-30 00:37:03,835 | INFO |     -1 results
+2026-05-30 00:37:04,838 | INFO |   Searching: 'b.v.'
+2026-05-30 00:37:07,949 | INFO |     -1 results
+2026-05-30 00:37:09,240 | INFO | Total unique foreign leads: 0
+2026-05-30 00:37:09,242 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-30 00:37:09,242 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-30 00:37:09,242 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-30 00:37:09,242 | INFO | ensuring close
+2026-05-30 00:53:29,619 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-30 00:53:34,047 | INFO | patching driver executable C:\Users\USER\appdata\roaming\undetected_chromedriver\undetected_chromedriver.exe
+2026-05-30 00:53:37,621 | INFO |   Searching: 'foreign'
+2026-05-30 00:53:43,143 | INFO |     -1 results
+2026-05-30 00:53:44,148 | INFO |   Searching: 'international'
+2026-05-30 00:53:46,934 | INFO |     -1 results
+2026-05-30 00:53:47,942 | INFO |   Searching: 'global'
+2026-05-30 00:53:51,198 | INFO |     -1 results
+2026-05-30 00:53:52,200 | INFO |   Searching: 'worldwide'
+2026-05-30 00:53:55,808 | INFO |     -1 results
+2026-05-30 00:53:56,809 | INFO |   Searching: 'gmbh'
+2026-05-30 00:54:00,301 | INFO |     -1 results
+2026-05-30 00:54:01,302 | INFO |   Searching: 'ltd'
+2026-05-30 00:54:04,532 | INFO |     -1 results
+2026-05-30 00:54:05,533 | INFO |   Searching: 's.a.'
+2026-05-30 00:54:08,215 | INFO |     -1 results
+2026-05-30 00:54:09,217 | INFO |   Searching: 'b.v.'
+2026-05-30 00:54:12,379 | INFO |     -1 results
+2026-05-30 00:54:13,707 | INFO | Total unique foreign leads: 0
+2026-05-30 00:54:13,707 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-30 00:54:13,707 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-30 00:54:13,707 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-30 00:54:13,707 | INFO | ensuring close
+2026-05-30 00:54:45,148 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-30 00:54:49,699 | INFO | patching driver executable C:\Users\USER\appdata\roaming\undetected_chromedriver\undetected_chromedriver.exe
+2026-05-30 00:54:53,061 | INFO |   Searching: 'foreign'
+2026-05-30 00:55:40,861 | INFO |     -1 results
+2026-05-30 00:55:41,868 | INFO |   Searching: 'international'
+2026-05-30 00:55:54,391 | INFO |     -1 results
+2026-05-30 00:55:55,398 | INFO |   Searching: 'global'
+2026-05-30 00:55:59,905 | INFO |     -1 results
+2026-05-30 00:56:00,906 | INFO |   Searching: 'worldwide'
+2026-05-30 00:56:23,166 | INFO |     -1 results
+2026-05-30 00:56:24,178 | INFO |   Searching: 'gmbh'
+2026-05-30 00:56:27,286 | INFO |     -1 results
+2026-05-30 00:56:28,287 | INFO |   Searching: 'ltd'
+2026-05-30 00:56:38,938 | INFO |     -1 results
+2026-05-30 00:56:39,941 | INFO |   Searching: 's.a.'
+2026-05-30 00:56:43,400 | INFO |     -1 results
+2026-05-30 00:56:44,403 | INFO |   Searching: 'b.v.'
+2026-05-30 00:56:47,501 | INFO |     -1 results
+2026-05-30 00:56:48,847 | INFO | Total unique foreign leads: 0
+2026-05-30 00:56:48,847 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-30 00:56:48,847 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-30 00:56:48,847 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-30 00:56:48,848 | INFO | ensuring close
+2026-05-30 02:35:21,191 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-30 02:35:26,243 | INFO | patching driver executable C:\Users\USER\appdata\roaming\undetected_chromedriver\undetected_chromedriver.exe
+2026-05-30 02:35:30,185 | INFO |   Searching: 'foreign'
+2026-05-30 02:35:35,117 | INFO |     -1 results
+2026-05-30 02:35:36,118 | INFO |   Searching: 'international'
+2026-05-30 02:35:39,493 | INFO |     -1 results
+2026-05-30 02:35:40,496 | INFO |   Searching: 'global'
+2026-05-30 02:35:43,614 | INFO |     -1 results
+2026-05-30 02:35:44,622 | INFO |   Searching: 'worldwide'
+2026-05-30 02:35:47,751 | INFO |     -1 results
+2026-05-30 02:35:48,753 | INFO |   Searching: 'gmbh'
+2026-05-30 02:35:51,433 | INFO |     -1 results
+2026-05-30 02:35:52,435 | INFO |   Searching: 'ltd'
+2026-05-30 02:35:55,527 | INFO |     -1 results
+2026-05-30 02:35:56,530 | INFO |   Searching: 's.a.'
+2026-05-30 02:35:59,187 | INFO |     -1 results
+2026-05-30 02:36:00,189 | INFO |   Searching: 'b.v.'
+2026-05-30 02:36:03,375 | INFO |     -1 results
+2026-05-30 02:36:04,669 | INFO | Total unique foreign leads: 0
+2026-05-30 02:36:04,669 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-30 02:36:04,671 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-30 02:36:04,671 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-30 02:36:04,671 | INFO | ensuring close
+2026-05-30 08:34:47,235 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-30 08:34:52,315 | INFO | patching driver executable C:\Users\USER\appdata\roaming\undetected_chromedriver\undetected_chromedriver.exe
+2026-05-30 08:34:58,626 | INFO |   Searching: 'foreign'
+2026-05-30 08:35:05,019 | INFO |     -1 results
+2026-05-30 08:35:06,027 | INFO |   Searching: 'international'
+2026-05-30 08:35:09,975 | INFO |     -1 results
+2026-05-30 08:35:10,977 | INFO |   Searching: 'global'
+2026-05-30 08:35:15,250 | INFO |     -1 results
+2026-05-30 08:35:16,252 | INFO |   Searching: 'worldwide'
+2026-05-30 08:35:21,559 | INFO |     -1 results
+2026-05-30 08:35:22,561 | INFO |   Searching: 'gmbh'
+2026-05-30 08:35:26,737 | INFO |     -1 results
+2026-05-30 08:35:27,739 | INFO |   Searching: 'ltd'
+2026-05-30 08:35:31,443 | INFO |     -1 results
+2026-05-30 08:35:32,450 | INFO |   Searching: 's.a.'
+2026-05-30 08:35:36,214 | INFO |     -1 results
+2026-05-30 08:35:37,216 | INFO |   Searching: 'b.v.'
+2026-05-30 08:35:40,886 | INFO |     -1 results
+2026-05-30 08:35:42,505 | INFO | Total unique foreign leads: 0
+2026-05-30 08:35:42,505 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-30 08:35:42,505 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-30 08:35:42,508 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-30 08:35:42,508 | INFO | ensuring close
+2026-05-30 08:40:59,781 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-30 08:41:04,453 | INFO | patching driver executable C:\Users\USER\appdata\roaming\undetected_chromedriver\undetected_chromedriver.exe
+2026-05-30 08:41:08,427 | INFO |   Searching: 'foreign'
+2026-05-30 08:41:13,192 | INFO |     -1 results
+2026-05-30 08:41:14,193 | INFO |   Searching: 'international'
+2026-05-30 08:41:17,166 | INFO |     -1 results
+2026-05-30 08:41:18,177 | INFO |   Searching: 'global'
+2026-05-30 08:41:20,846 | INFO |     -1 results
+2026-05-30 08:41:21,847 | INFO |   Searching: 'worldwide'
+2026-05-30 08:41:25,275 | INFO |     -1 results
+2026-05-30 08:41:26,280 | INFO |   Searching: 'gmbh'
+2026-05-30 08:41:28,965 | INFO |     -1 results
+2026-05-30 08:41:29,966 | INFO |   Searching: 'ltd'
+2026-05-30 08:41:32,665 | INFO |     -1 results
+2026-05-30 08:41:33,679 | INFO |   Searching: 's.a.'
+2026-05-30 08:41:36,400 | INFO |     -1 results
+2026-05-30 08:41:37,409 | INFO |   Searching: 'b.v.'
+2026-05-30 08:41:40,109 | INFO |     -1 results
+2026-05-30 08:41:41,404 | INFO | Total unique foreign leads: 0
+2026-05-30 08:41:41,404 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-30 08:41:41,404 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-30 08:41:41,405 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-30 08:41:41,405 | INFO | ensuring close
+2026-05-30 08:51:14,585 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-30 08:51:19,243 | INFO | patching driver executable C:\Users\USER\appdata\roaming\undetected_chromedriver\undetected_chromedriver.exe
+2026-05-30 08:51:22,738 | INFO |   Searching: 'foreign'
+2026-05-30 08:51:27,469 | INFO |     20 results
+2026-05-30 08:51:29,826 | INFO |   Error on 'foreign': Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xbbb593+105d3]
+	undetected_chromedriver!GetHandleVerifier [0xbbb6c4+10704]
+	undetected_chromedriver!(No symbol) [0x9c1cde]
+	undetected_chromedriver!(No symbol) [0x9ffb77]
+	undetected_chromedriver!(No symbol) [0xa2d636]
+	undetected_chromedriver!(No symbol) [0xa28861]
+	undetected_chromedriver!(No symbol) [0xa28241]
+	undetected_chromedriver!(No symbol) [0x99502e]
+	undetected_chromedriver!(No symbol) [0x9955ce]
+	undetected_chromedriver!(No symbol) [0x995aad]
+	undetected_chromedriver!GetHandleVerifier [0xe43014+298054]
+	undetected_chromedriver!GetHandleVerifier [0xe3e603+293643]
+	undetected_chromedriver!GetHandleVerifier [0xe5ea05+2b3a45]
+	undetected_chromedriver!GetHandleVerifier [0xbd54e8+2a528]
+	undetected_chromedriver!GetHandleVerifier [0xbdcd1d+31d5d]
+	undetected_chromedriver!(No symbol) [0x994ba6]
+	undetected_chromedriver!(No symbol) [0x9941e0]
+	undetected_chromedriver!GetHandleVerifier [0xfa87af+3fd7ef]
+	KERNEL32!BaseThreadInitThunk [0x75de5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77d9e12b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77d9e0b1+231]
+
+2026-05-30 08:51:30,829 | INFO |   Searching: 'international'
+2026-05-30 08:51:30,837 | INFO |   Error on 'international': Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xbbb593+105d3]
+	undetected_chromedriver!GetHandleVerifier [0xbbb6c4+10704]
+	undetected_chromedriver!(No symbol) [0x9c1cde]
+	undetected_chromedriver!(No symbol) [0x9ffb77]
+	undetected_chromedriver!(No symbol) [0xa2d636]
+	undetected_chromedriver!(No symbol) [0xa28861]
+	undetected_chromedriver!(No symbol) [0xa28241]
+	undetected_chromedriver!(No symbol) [0x99502e]
+	undetected_chromedriver!(No symbol) [0x9955ce]
+	undetected_chromedriver!(No symbol) [0x995aad]
+	undetected_chromedriver!GetHandleVerifier [0xe43014+298054]
+	undetected_chromedriver!GetHandleVerifier [0xe3e603+293643]
+	undetected_chromedriver!GetHandleVerifier [0xe5ea05+2b3a45]
+	undetected_chromedriver!GetHandleVerifier [0xbd54e8+2a528]
+	undetected_chromedriver!GetHandleVerifier [0xbdcd1d+31d5d]
+	undetected_chromedriver!(No symbol) [0x994ba6]
+	undetected_chromedriver!(No symbol) [0x9941e0]
+	undetected_chromedriver!GetHandleVerifier [0xfa87af+3fd7ef]
+	KERNEL32!BaseThreadInitThunk [0x75de5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77d9e12b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77d9e0b1+231]
+
+2026-05-30 08:51:31,839 | INFO |   Searching: 'global'
+2026-05-30 08:51:31,843 | INFO |   Error on 'global': Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xbbb593+105d3]
+	undetected_chromedriver!GetHandleVerifier [0xbbb6c4+10704]
+	undetected_chromedriver!(No symbol) [0x9c1cde]
+	undetected_chromedriver!(No symbol) [0x9ffb77]
+	undetected_chromedriver!(No symbol) [0xa2d636]
+	undetected_chromedriver!(No symbol) [0xa28861]
+	undetected_chromedriver!(No symbol) [0xa28241]
+	undetected_chromedriver!(No symbol) [0x99502e]
+	undetected_chromedriver!(No symbol) [0x9955ce]
+	undetected_chromedriver!(No symbol) [0x995aad]
+	undetected_chromedriver!GetHandleVerifier [0xe43014+298054]
+	undetected_chromedriver!GetHandleVerifier [0xe3e603+293643]
+	undetected_chromedriver!GetHandleVerifier [0xe5ea05+2b3a45]
+	undetected_chromedriver!GetHandleVerifier [0xbd54e8+2a528]
+	undetected_chromedriver!GetHandleVerifier [0xbdcd1d+31d5d]
+	undetected_chromedriver!(No symbol) [0x994ba6]
+	undetected_chromedriver!(No symbol) [0x9941e0]
+	undetected_chromedriver!GetHandleVerifier [0xfa87af+3fd7ef]
+	KERNEL32!BaseThreadInitThunk [0x75de5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77d9e12b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77d9e0b1+231]
+
+2026-05-30 08:51:32,845 | INFO |   Searching: 'worldwide'
+2026-05-30 08:51:32,848 | INFO |   Error on 'worldwide': Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xbbb593+105d3]
+	undetected_chromedriver!GetHandleVerifier [0xbbb6c4+10704]
+	undetected_chromedriver!(No symbol) [0x9c1cde]
+	undetected_chromedriver!(No symbol) [0x9ffb77]
+	undetected_chromedriver!(No symbol) [0xa2d636]
+	undetected_chromedriver!(No symbol) [0xa28861]
+	undetected_chromedriver!(No symbol) [0xa28241]
+	undetected_chromedriver!(No symbol) [0x99502e]
+	undetected_chromedriver!(No symbol) [0x9955ce]
+	undetected_chromedriver!(No symbol) [0x995aad]
+	undetected_chromedriver!GetHandleVerifier [0xe43014+298054]
+	undetected_chromedriver!GetHandleVerifier [0xe3e603+293643]
+	undetected_chromedriver!GetHandleVerifier [0xe5ea05+2b3a45]
+	undetected_chromedriver!GetHandleVerifier [0xbd54e8+2a528]
+	undetected_chromedriver!GetHandleVerifier [0xbdcd1d+31d5d]
+	undetected_chromedriver!(No symbol) [0x994ba6]
+	undetected_chromedriver!(No symbol) [0x9941e0]
+	undetected_chromedriver!GetHandleVerifier [0xfa87af+3fd7ef]
+	KERNEL32!BaseThreadInitThunk [0x75de5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77d9e12b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77d9e0b1+231]
+
+2026-05-30 08:51:33,849 | INFO |   Searching: 'gmbh'
+2026-05-30 08:51:33,855 | INFO |   Error on 'gmbh': Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xbbb593+105d3]
+	undetected_chromedriver!GetHandleVerifier [0xbbb6c4+10704]
+	undetected_chromedriver!(No symbol) [0x9c1cde]
+	undetected_chromedriver!(No symbol) [0x9ffb77]
+	undetected_chromedriver!(No symbol) [0xa2d636]
+	undetected_chromedriver!(No symbol) [0xa28861]
+	undetected_chromedriver!(No symbol) [0xa28241]
+	undetected_chromedriver!(No symbol) [0x99502e]
+	undetected_chromedriver!(No symbol) [0x9955ce]
+	undetected_chromedriver!(No symbol) [0x995aad]
+	undetected_chromedriver!GetHandleVerifier [0xe43014+298054]
+	undetected_chromedriver!GetHandleVerifier [0xe3e603+293643]
+	undetected_chromedriver!GetHandleVerifier [0xe5ea05+2b3a45]
+	undetected_chromedriver!GetHandleVerifier [0xbd54e8+2a528]
+	undetected_chromedriver!GetHandleVerifier [0xbdcd1d+31d5d]
+	undetected_chromedriver!(No symbol) [0x994ba6]
+	undetected_chromedriver!(No symbol) [0x9941e0]
+	undetected_chromedriver!GetHandleVerifier [0xfa87af+3fd7ef]
+	KERNEL32!BaseThreadInitThunk [0x75de5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77d9e12b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77d9e0b1+231]
+
+2026-05-30 08:51:34,857 | INFO |   Searching: 'ltd'
+2026-05-30 08:51:34,857 | INFO |   Error on 'ltd': Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xbbb593+105d3]
+	undetected_chromedriver!GetHandleVerifier [0xbbb6c4+10704]
+	undetected_chromedriver!(No symbol) [0x9c1cde]
+	undetected_chromedriver!(No symbol) [0x9ffb77]
+	undetected_chromedriver!(No symbol) [0xa2d636]
+	undetected_chromedriver!(No symbol) [0xa28861]
+	undetected_chromedriver!(No symbol) [0xa28241]
+	undetected_chromedriver!(No symbol) [0x99502e]
+	undetected_chromedriver!(No symbol) [0x9955ce]
+	undetected_chromedriver!(No symbol) [0x995aad]
+	undetected_chromedriver!GetHandleVerifier [0xe43014+298054]
+	undetected_chromedriver!GetHandleVerifier [0xe3e603+293643]
+	undetected_chromedriver!GetHandleVerifier [0xe5ea05+2b3a45]
+	undetected_chromedriver!GetHandleVerifier [0xbd54e8+2a528]
+	undetected_chromedriver!GetHandleVerifier [0xbdcd1d+31d5d]
+	undetected_chromedriver!(No symbol) [0x994ba6]
+	undetected_chromedriver!(No symbol) [0x9941e0]
+	undetected_chromedriver!GetHandleVerifier [0xfa87af+3fd7ef]
+	KERNEL32!BaseThreadInitThunk [0x75de5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77d9e12b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77d9e0b1+231]
+
+2026-05-30 08:51:35,861 | INFO |   Searching: 's.a.'
+2026-05-30 08:51:35,867 | INFO |   Error on 's.a.': Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xbbb593+105d3]
+	undetected_chromedriver!GetHandleVerifier [0xbbb6c4+10704]
+	undetected_chromedriver!(No symbol) [0x9c1cde]
+	undetected_chromedriver!(No symbol) [0x9ffb77]
+	undetected_chromedriver!(No symbol) [0xa2d636]
+	undetected_chromedriver!(No symbol) [0xa28861]
+	undetected_chromedriver!(No symbol) [0xa28241]
+	undetected_chromedriver!(No symbol) [0x99502e]
+	undetected_chromedriver!(No symbol) [0x9955ce]
+	undetected_chromedriver!(No symbol) [0x995aad]
+	undetected_chromedriver!GetHandleVerifier [0xe43014+298054]
+	undetected_chromedriver!GetHandleVerifier [0xe3e603+293643]
+	undetected_chromedriver!GetHandleVerifier [0xe5ea05+2b3a45]
+	undetected_chromedriver!GetHandleVerifier [0xbd54e8+2a528]
+	undetected_chromedriver!GetHandleVerifier [0xbdcd1d+31d5d]
+	undetected_chromedriver!(No symbol) [0x994ba6]
+	undetected_chromedriver!(No symbol) [0x9941e0]
+	undetected_chromedriver!GetHandleVerifier [0xfa87af+3fd7ef]
+	KERNEL32!BaseThreadInitThunk [0x75de5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77d9e12b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77d9e0b1+231]
+
+2026-05-30 08:51:36,869 | INFO |   Searching: 'b.v.'
+2026-05-30 08:51:36,872 | INFO |   Error on 'b.v.': Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xbbb593+105d3]
+	undetected_chromedriver!GetHandleVerifier [0xbbb6c4+10704]
+	undetected_chromedriver!(No symbol) [0x9c1cde]
+	undetected_chromedriver!(No symbol) [0x9ffb77]
+	undetected_chromedriver!(No symbol) [0xa2d636]
+	undetected_chromedriver!(No symbol) [0xa28861]
+	undetected_chromedriver!(No symbol) [0xa28241]
+	undetected_chromedriver!(No symbol) [0x99502e]
+	undetected_chromedriver!(No symbol) [0x9955ce]
+	undetected_chromedriver!(No symbol) [0x995aad]
+	undetected_chromedriver!GetHandleVerifier [0xe43014+298054]
+	undetected_chromedriver!GetHandleVerifier [0xe3e603+293643]
+	undetected_chromedriver!GetHandleVerifier [0xe5ea05+2b3a45]
+	undetected_chromedriver!GetHandleVerifier [0xbd54e8+2a528]
+	undetected_chromedriver!GetHandleVerifier [0xbdcd1d+31d5d]
+	undetected_chromedriver!(No symbol) [0x994ba6]
+	undetected_chromedriver!(No symbol) [0x9941e0]
+	undetected_chromedriver!GetHandleVerifier [0xfa87af+3fd7ef]
+	KERNEL32!BaseThreadInitThunk [0x75de5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77d9e12b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77d9e0b1+231]
+
+2026-05-30 08:51:38,070 | INFO | Total unique foreign leads: 0
+2026-05-30 08:51:38,070 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-30 08:51:38,070 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-30 08:51:38,070 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-30 08:51:38,071 | INFO | ensuring close
+2026-05-30 08:52:04,057 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-30 08:52:04,057 | INFO |   Connecting to Florida SFTP...
+2026-05-30 08:52:04,674 | INFO |   FTP error: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-05-30 08:52:04,675 | INFO |   Connecting to Florida SFTP...
+2026-05-30 08:52:04,910 | INFO |   FTP error: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-05-30 08:52:04,911 | INFO |   Connecting to Florida SFTP...
+2026-05-30 08:52:05,209 | INFO |   FTP error: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-05-30 08:52:05,210 | INFO |   Connecting to Florida SFTP...
+2026-05-30 08:52:05,483 | INFO |   FTP error: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-05-30 08:52:05,483 | INFO |   Connecting to Florida SFTP...
+2026-05-30 08:52:05,720 | INFO |   FTP error: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-05-30 08:52:05,721 | INFO |   Connecting to Florida SFTP...
+2026-05-30 08:52:05,956 | INFO |   FTP error: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-05-30 08:52:05,957 | INFO |   Connecting to Florida SFTP...
+2026-05-30 08:52:06,226 | INFO |   FTP error: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-05-30 08:52:06,227 | INFO | Total foreign leads: 0
+2026-05-30 08:52:06,227 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-30 08:52:06,228 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-30 08:52:06,228 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-30 08:56:35,274 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-30 08:56:35,274 | INFO |   Connecting to Florida SFTP for 20260530c.txt...
+2026-05-30 08:56:35,760 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 08:56:36,465 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 08:56:36,709 | INFO | Authentication (password) successful!
+2026-05-30 08:56:37,372 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 08:56:37,586 | INFO |   File not found: 20260530c.txt (may be holiday/weekend)
+2026-05-30 08:56:37,586 | INFO | [chan 0] sftp session closed.
+2026-05-30 08:56:37,590 | INFO |   Connecting to Florida SFTP for 20260529c.txt...
+2026-05-30 08:56:38,050 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 08:56:38,774 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 08:56:39,027 | INFO | Authentication (password) successful!
+2026-05-30 08:56:39,721 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 08:56:39,947 | INFO |   File not found: 20260529c.txt (may be holiday/weekend)
+2026-05-30 08:56:39,948 | INFO | [chan 0] sftp session closed.
+2026-05-30 08:56:39,948 | INFO |   Connecting to Florida SFTP for 20260528c.txt...
+2026-05-30 08:56:40,358 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 08:56:40,997 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 08:56:41,225 | INFO | Authentication (password) successful!
+2026-05-30 08:56:41,861 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 08:56:42,065 | INFO |   File not found: 20260528c.txt (may be holiday/weekend)
+2026-05-30 08:56:42,065 | INFO | [chan 0] sftp session closed.
+2026-05-30 08:56:42,066 | INFO |   Connecting to Florida SFTP for 20260527c.txt...
+2026-05-30 08:56:42,485 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 08:56:43,144 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 08:56:43,378 | INFO | Authentication (password) successful!
+2026-05-30 08:56:44,011 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 08:56:44,217 | INFO |   File not found: 20260527c.txt (may be holiday/weekend)
+2026-05-30 08:56:44,217 | INFO | [chan 0] sftp session closed.
+2026-05-30 08:56:44,218 | INFO |   Connecting to Florida SFTP for 20260526c.txt...
+2026-05-30 08:56:44,657 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 08:56:45,363 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 08:56:45,606 | INFO | Authentication (password) successful!
+2026-05-30 08:56:46,273 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 08:56:46,491 | INFO |   File not found: 20260526c.txt (may be holiday/weekend)
+2026-05-30 08:56:46,491 | INFO | [chan 0] sftp session closed.
+2026-05-30 08:56:46,491 | INFO |   Connecting to Florida SFTP for 20260525c.txt...
+2026-05-30 08:56:46,903 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 08:56:47,547 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 08:56:47,777 | INFO | Authentication (password) successful!
+2026-05-30 08:56:48,404 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 08:56:48,609 | INFO |   File not found: 20260525c.txt (may be holiday/weekend)
+2026-05-30 08:56:48,609 | INFO | [chan 0] sftp session closed.
+2026-05-30 08:56:48,610 | INFO |   Connecting to Florida SFTP for 20260524c.txt...
+2026-05-30 08:56:49,042 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 08:56:49,749 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 08:56:49,990 | INFO | Authentication (password) successful!
+2026-05-30 08:56:50,646 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 08:56:50,862 | INFO |   File not found: 20260524c.txt (may be holiday/weekend)
+2026-05-30 08:56:50,862 | INFO | [chan 0] sftp session closed.
+2026-05-30 08:56:50,863 | INFO | Total foreign leads: 0
+2026-05-30 08:56:50,863 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-30 08:56:50,863 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-30 08:56:50,864 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-30 09:20:54,334 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-30 09:20:54,334 | INFO |   Trying: doc/cor/2026/20260530c.txt
+2026-05-30 09:20:54,797 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 09:20:55,529 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 09:20:55,781 | INFO | Authentication (password) successful!
+2026-05-30 09:20:56,478 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 09:20:56,704 | INFO |   Not found: 20260530c.txt (holiday/weekend)
+2026-05-30 09:20:56,704 | INFO | [chan 0] sftp session closed.
+2026-05-30 09:20:56,705 | INFO |   Trying: doc/cor/2026/20260529c.txt
+2026-05-30 09:20:57,153 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 09:20:57,867 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 09:20:58,117 | INFO | Authentication (password) successful!
+2026-05-30 09:20:58,806 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 09:20:59,027 | INFO |   Not found: 20260529c.txt (holiday/weekend)
+2026-05-30 09:20:59,028 | INFO | [chan 0] sftp session closed.
+2026-05-30 09:20:59,028 | INFO |   Trying: doc/cor/2026/20260528c.txt
+2026-05-30 09:20:59,450 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 09:21:00,108 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 09:21:00,344 | INFO | Authentication (password) successful!
+2026-05-30 09:21:00,974 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 09:21:01,181 | INFO |   Not found: 20260528c.txt (holiday/weekend)
+2026-05-30 09:21:01,181 | INFO | [chan 0] sftp session closed.
+2026-05-30 09:21:01,182 | INFO |   Trying: doc/cor/2026/20260527c.txt
+2026-05-30 09:21:01,614 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 09:21:02,288 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 09:21:02,525 | INFO | Authentication (password) successful!
+2026-05-30 09:21:03,173 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 09:21:13,788 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-30 09:21:13,788 | INFO |   Trying: doc/cor/2026/20260530c.txt
+2026-05-30 09:21:14,220 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 09:21:14,908 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 09:21:15,145 | INFO | Authentication (password) successful!
+2026-05-30 09:21:15,795 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 09:21:16,007 | INFO |   Not found: 20260530c.txt (holiday/weekend)
+2026-05-30 09:21:16,008 | INFO | [chan 0] sftp session closed.
+2026-05-30 09:21:16,009 | INFO |   Trying: doc/cor/2026/20260529c.txt
+2026-05-30 09:21:16,429 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 09:21:17,105 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 09:21:17,340 | INFO | Authentication (password) successful!
+2026-05-30 09:21:17,978 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 09:21:18,186 | INFO |   Not found: 20260529c.txt (holiday/weekend)
+2026-05-30 09:21:18,186 | INFO | [chan 0] sftp session closed.
+2026-05-30 09:21:18,188 | INFO |   Trying: doc/cor/2026/20260528c.txt
+2026-05-30 09:21:18,625 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 09:21:19,340 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 09:21:19,584 | INFO | Authentication (password) successful!
+2026-05-30 09:21:20,243 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 09:21:20,460 | INFO |   Not found: 20260528c.txt (holiday/weekend)
+2026-05-30 09:21:20,461 | INFO | [chan 0] sftp session closed.
+2026-05-30 09:21:20,461 | INFO |   Trying: doc/cor/2026/20260527c.txt
+2026-05-30 09:21:20,919 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 09:21:21,660 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 09:21:21,910 | INFO | Authentication (password) successful!
+2026-05-30 09:21:22,602 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 09:21:22,827 | INFO |   Not found: 20260527c.txt (holiday/weekend)
+2026-05-30 09:21:22,827 | INFO | [chan 0] sftp session closed.
+2026-05-30 09:21:22,828 | INFO |   Trying: doc/cor/2026/20260526c.txt
+2026-05-30 09:21:23,239 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 09:21:23,881 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 09:21:24,108 | INFO | Authentication (password) successful!
+2026-05-30 09:21:24,727 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 09:21:24,929 | INFO |   Not found: 20260526c.txt (holiday/weekend)
+2026-05-30 09:21:24,931 | INFO | [chan 0] sftp session closed.
+2026-05-30 09:21:24,933 | INFO |   Trying: doc/cor/2026/20260525c.txt
+2026-05-30 09:21:25,344 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 09:21:25,972 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 09:21:26,200 | INFO | Authentication (password) successful!
+2026-05-30 09:21:26,811 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 09:21:27,013 | INFO |   Not found: 20260525c.txt (holiday/weekend)
+2026-05-30 09:21:27,013 | INFO | [chan 0] sftp session closed.
+2026-05-30 09:21:27,014 | INFO |   Trying: doc/cor/2026/20260524c.txt
+2026-05-30 09:21:27,483 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-30 09:21:28,235 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-30 09:21:28,494 | INFO | Authentication (password) successful!
+2026-05-30 09:21:29,222 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-30 09:21:29,454 | INFO |   Not found: 20260524c.txt (holiday/weekend)
+2026-05-30 09:21:29,454 | INFO | [chan 0] sftp session closed.
+2026-05-30 09:21:29,457 | INFO | Total foreign leads: 0
+2026-05-30 09:21:29,457 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-30 09:21:29,457 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-30 09:21:29,458 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-31 09:17:28,441 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-31 09:17:28,443 | INFO |   Trying: doc/cor/2026/20260531c.txt
+2026-05-31 09:17:29,141 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:17:29,848 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:17:30,220 | INFO | Authentication (password) successful!
+2026-05-31 09:17:30,881 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:17:31,100 | INFO |   Not found: 20260531c.txt (holiday/weekend)
+2026-05-31 09:17:31,100 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:17:31,100 | INFO |   Trying: doc/cor/2026/20260530c.txt
+2026-05-31 09:17:31,554 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:17:32,185 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:17:32,407 | INFO | Authentication (password) successful!
+2026-05-31 09:17:33,010 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:17:33,201 | INFO |   Not found: 20260530c.txt (holiday/weekend)
+2026-05-31 09:17:33,201 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:17:33,209 | INFO |   Trying: doc/cor/2026/20260529c.txt
+2026-05-31 09:17:33,633 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:17:34,278 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:17:34,503 | INFO | Authentication (password) successful!
+2026-05-31 09:17:35,114 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:17:35,314 | INFO |   Not found: 20260529c.txt (holiday/weekend)
+2026-05-31 09:17:35,316 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:17:35,316 | INFO |   Trying: doc/cor/2026/20260528c.txt
+2026-05-31 09:17:35,746 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:17:36,457 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:17:36,673 | INFO | Authentication (password) successful!
+2026-05-31 09:17:37,276 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:17:37,476 | INFO |   Not found: 20260528c.txt (holiday/weekend)
+2026-05-31 09:17:37,476 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:17:37,476 | INFO |   Trying: doc/cor/2026/20260527c.txt
+2026-05-31 09:17:37,874 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:17:38,495 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:17:38,723 | INFO | Authentication (password) successful!
+2026-05-31 09:17:39,321 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:17:39,521 | INFO |   Not found: 20260527c.txt (holiday/weekend)
+2026-05-31 09:17:39,523 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:17:39,525 | INFO |   Trying: doc/cor/2026/20260526c.txt
+2026-05-31 09:17:39,984 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:17:40,780 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:17:41,031 | INFO | Authentication (password) successful!
+2026-05-31 09:17:41,717 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:17:41,942 | INFO |   Not found: 20260526c.txt (holiday/weekend)
+2026-05-31 09:17:41,945 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:17:41,947 | INFO |   Trying: doc/cor/2026/20260525c.txt
+2026-05-31 09:17:42,405 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:17:43,081 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:17:43,313 | INFO | Authentication (password) successful!
+2026-05-31 09:17:43,954 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:17:44,166 | INFO |   Not found: 20260525c.txt (holiday/weekend)
+2026-05-31 09:17:44,166 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:17:44,170 | INFO | Total foreign leads: 0
+2026-05-31 09:17:44,171 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-31 09:17:44,171 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-31 09:17:44,172 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-31 09:18:18,937 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-31 09:18:18,937 | INFO |   Trying: doc/cor/20260531c.txt
+2026-05-31 09:18:19,452 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:18:20,210 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:18:20,436 | INFO | Authentication (password) successful!
+2026-05-31 09:18:21,054 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:18:21,265 | INFO |   Not found: 20260531c.txt (holiday/weekend)
+2026-05-31 09:18:21,266 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:18:21,269 | INFO |   Trying: doc/cor/20260530c.txt
+2026-05-31 09:18:21,728 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:18:22,454 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:18:22,685 | INFO | Authentication (password) successful!
+2026-05-31 09:18:23,321 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:18:23,531 | INFO |   Downloading: 20260530c.txt
+2026-05-31 09:18:25,648 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:18:25,651 | INFO |   Downloaded 372 lines
+2026-05-31 09:18:25,653 | INFO |   Found 0 foreign filings for 2026-05-30
+2026-05-31 09:18:25,656 | INFO | Total foreign leads: 0
+2026-05-31 09:18:25,656 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-31 09:18:25,656 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-31 09:18:25,659 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-31 09:45:46,665 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-31 09:45:46,665 | INFO |   Trying: doc/cor/20260531c.txt
+2026-05-31 09:45:47,181 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:45:47,915 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:45:48,150 | INFO | Authentication (password) successful!
+2026-05-31 09:45:48,799 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:45:49,010 | INFO |   Not found: 20260531c.txt (holiday/weekend)
+2026-05-31 09:45:49,010 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:45:49,010 | INFO |   Trying: doc/cor/20260530c.txt
+2026-05-31 09:45:49,420 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:45:50,095 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:45:50,365 | INFO | Authentication (password) successful!
+2026-05-31 09:45:50,987 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:45:51,185 | INFO |   Downloading: 20260530c.txt
+2026-05-31 09:45:53,087 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:45:53,095 | INFO |   Downloaded 372 lines
+2026-05-31 09:45:53,095 | INFO |   Found 0 foreign filings for 2026-05-30
+2026-05-31 09:45:53,101 | INFO | Total foreign leads: 0
+2026-05-31 09:45:53,101 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-31 09:45:53,104 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-31 09:45:53,104 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-31 09:47:01,669 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-31 09:47:01,670 | INFO |   Trying: doc/cor/20260531c.txt
+2026-05-31 09:47:02,115 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:47:02,825 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:47:03,066 | INFO | Authentication (password) successful!
+2026-05-31 09:47:03,721 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:47:03,935 | INFO |   Not found: 20260531c.txt (holiday/weekend)
+2026-05-31 09:47:03,941 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:47:03,947 | INFO |   Trying: doc/cor/20260530c.txt
+2026-05-31 09:47:04,402 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:47:05,039 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:47:05,327 | INFO | Authentication (password) successful!
+2026-05-31 09:47:05,957 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:47:06,155 | INFO |   Downloading: 20260530c.txt
+2026-05-31 09:47:08,049 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:47:08,055 | INFO |   Downloaded 372 lines
+2026-05-31 09:47:08,065 | INFO |   2026-05-30: 372 lines -> 0 foreign filings
+2026-05-31 09:47:08,067 | INFO |   Trying: doc/cor/20260529c.txt
+2026-05-31 09:47:08,495 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:47:09,145 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:47:09,373 | INFO | Authentication (password) successful!
+2026-05-31 09:47:10,014 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:47:10,212 | INFO |   Downloading: 20260529c.txt
+2026-05-31 09:47:13,456 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:47:13,502 | INFO |   Downloaded 2812 lines
+2026-05-31 09:47:13,524 | INFO |   2026-05-29: 2812 lines -> 106 foreign filings
+2026-05-31 09:47:13,529 | INFO |   Trying: doc/cor/20260528c.txt
+2026-05-31 09:47:13,945 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:47:14,667 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:47:14,919 | INFO | Authentication (password) successful!
+2026-05-31 09:47:15,547 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:47:15,758 | INFO |   Downloading: 20260528c.txt
+2026-05-31 09:47:18,879 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:47:18,895 | INFO |   Downloaded 2717 lines
+2026-05-31 09:47:18,924 | INFO |   2026-05-28: 2717 lines -> 95 foreign filings
+2026-05-31 09:47:18,924 | INFO |   Trying: doc/cor/20260527c.txt
+2026-05-31 09:47:19,360 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:47:19,989 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:47:20,214 | INFO | Authentication (password) successful!
+2026-05-31 09:47:20,823 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:47:21,021 | INFO |   Downloading: 20260527c.txt
+2026-05-31 09:47:24,022 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:47:24,037 | INFO |   Downloaded 2233 lines
+2026-05-31 09:47:24,049 | INFO |   2026-05-27: 2233 lines -> 118 foreign filings
+2026-05-31 09:47:24,051 | INFO |   Trying: doc/cor/20260526c.txt
+2026-05-31 09:47:24,753 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:47:25,483 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:47:25,801 | INFO | Authentication (password) successful!
+2026-05-31 09:47:26,474 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:47:26,695 | INFO |   Downloading: 20260526c.txt
+2026-05-31 09:47:29,690 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:47:29,700 | INFO |   Downloaded 2270 lines
+2026-05-31 09:47:29,715 | INFO |   2026-05-26: 2270 lines -> 74 foreign filings
+2026-05-31 09:47:29,715 | INFO |   Trying: doc/cor/20260525c.txt
+2026-05-31 09:47:30,195 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 09:47:30,866 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 09:47:31,100 | INFO | Authentication (password) successful!
+2026-05-31 09:47:31,734 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 09:47:31,949 | INFO |   Not found: 20260525c.txt (holiday/weekend)
+2026-05-31 09:47:31,949 | INFO | [chan 0] sftp session closed.
+2026-05-31 09:47:31,954 | INFO | Total foreign leads this week: 393
+2026-05-31 09:48:07,846 | ERROR | FAILED: Sunbiz.org Scraper (Type 2) | Error: 422 Client Error: Unprocessable Entity for url: https://api.airtable.com/v0/appsNkoJJqzZFfAW1/tblU9q6T3j1pyCWey
+2026-05-31 09:48:07,849 | ERROR | ========== END (with errors): Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-31 10:03:12,118 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-31 10:03:12,124 | INFO |   Trying: doc/cor/20260531c.txt
+2026-05-31 10:03:12,987 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:03:13,776 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:03:14,020 | INFO | Authentication (password) successful!
+2026-05-31 10:03:14,670 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:03:14,887 | INFO |   Not found: 20260531c.txt (holiday/weekend)
+2026-05-31 10:03:14,887 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:03:14,892 | INFO |   Trying: doc/cor/20260530c.txt
+2026-05-31 10:03:15,295 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:03:15,928 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:03:16,152 | INFO | Authentication (password) successful!
+2026-05-31 10:03:16,756 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:03:16,955 | INFO |   Downloading: 20260530c.txt
+2026-05-31 10:03:18,789 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:03:18,795 | INFO |   Downloaded 372 lines
+2026-05-31 10:03:18,798 | INFO |   2026-05-30: 372 lines -> 0 foreign filings
+2026-05-31 10:03:18,798 | INFO |   Trying: doc/cor/20260529c.txt
+2026-05-31 10:03:19,248 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:03:19,917 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:03:20,141 | INFO | Authentication (password) successful!
+2026-05-31 10:03:20,745 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:03:20,941 | INFO |   Downloading: 20260529c.txt
+2026-05-31 10:03:24,228 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:03:24,262 | INFO |   Downloaded 2812 lines
+2026-05-31 10:03:24,286 | INFO |   2026-05-29: 2812 lines -> 106 foreign filings
+2026-05-31 10:03:24,287 | INFO |   Trying: doc/cor/20260528c.txt
+2026-05-31 10:03:24,775 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:03:25,410 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:03:25,635 | INFO | Authentication (password) successful!
+2026-05-31 10:03:26,235 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:03:26,441 | INFO |   Downloading: 20260528c.txt
+2026-05-31 10:03:29,687 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:03:29,725 | INFO |   Downloaded 2717 lines
+2026-05-31 10:03:29,755 | INFO |   2026-05-28: 2717 lines -> 95 foreign filings
+2026-05-31 10:03:29,755 | INFO |   Trying: doc/cor/20260527c.txt
+2026-05-31 10:03:30,186 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:03:30,925 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:03:31,165 | INFO | Authentication (password) successful!
+2026-05-31 10:03:31,807 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:03:32,015 | INFO |   Downloading: 20260527c.txt
+2026-05-31 10:03:34,960 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:03:34,983 | INFO |   Downloaded 2233 lines
+2026-05-31 10:03:35,004 | INFO |   2026-05-27: 2233 lines -> 118 foreign filings
+2026-05-31 10:03:35,005 | INFO |   Trying: doc/cor/20260526c.txt
+2026-05-31 10:03:35,405 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:03:36,116 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:03:36,346 | INFO | Authentication (password) successful!
+2026-05-31 10:03:36,956 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:03:37,155 | INFO |   Downloading: 20260526c.txt
+2026-05-31 10:03:40,110 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:03:40,128 | INFO |   Downloaded 2270 lines
+2026-05-31 10:03:40,148 | INFO |   2026-05-26: 2270 lines -> 74 foreign filings
+2026-05-31 10:03:40,153 | INFO |   Trying: doc/cor/20260525c.txt
+2026-05-31 10:03:40,587 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:03:41,268 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:03:41,570 | INFO | Authentication (password) successful!
+2026-05-31 10:03:42,186 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:03:42,394 | INFO |   Not found: 20260525c.txt (holiday/weekend)
+2026-05-31 10:03:42,397 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:03:42,403 | INFO | Total foreign leads this week: 393
+2026-05-31 10:05:23,062 | INFO | Airtable -> Added: 393 | Skipped: 0
+2026-05-31 10:05:23,062 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 393
+2026-05-31 10:05:23,064 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-31 10:09:38,732 | INFO | ========== START: MASTER PIPELINE ==========
+2026-05-31 10:09:38,733 | INFO | --- Starting: SBA.gov ---
+2026-05-31 10:09:38,733 | INFO | ========== START: SBA.gov Scraper ==========
+2026-05-31 10:09:38,733 | INFO | Downloading SBA CSV...
+2026-05-31 10:10:30,490 | ERROR | FAILED: SBA.gov Scraper | Error: 
+2026-05-31 10:10:30,493 | ERROR | ========== END (with errors): SBA.gov Scraper ==========
+
+2026-05-31 10:10:30,493 | INFO | --- SBA.gov failed, continuing to next scraper ---
+2026-05-31 10:10:30,520 | INFO | --- Starting: Sunbiz FL ---
+2026-05-31 10:10:30,522 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-05-31 10:10:30,523 | INFO |   Trying: doc/cor/20260531c.txt
+2026-05-31 10:10:31,175 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:10:31,886 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:10:32,108 | INFO | Authentication (password) successful!
+2026-05-31 10:10:32,710 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:10:32,915 | INFO |   Not found: 20260531c.txt (holiday/weekend)
+2026-05-31 10:10:32,915 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:10:32,915 | INFO |   Trying: doc/cor/20260530c.txt
+2026-05-31 10:10:33,421 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:10:34,243 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:10:34,547 | INFO | Authentication (password) successful!
+2026-05-31 10:10:35,175 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:10:35,368 | INFO |   Downloading: 20260530c.txt
+2026-05-31 10:10:37,187 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:10:37,192 | INFO |   Downloaded 372 lines
+2026-05-31 10:10:37,194 | INFO |   2026-05-30: 372 lines -> 0 foreign filings
+2026-05-31 10:10:37,194 | INFO |   Trying: doc/cor/20260529c.txt
+2026-05-31 10:10:37,646 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:10:38,466 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:10:38,714 | INFO | Authentication (password) successful!
+2026-05-31 10:10:39,390 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:10:39,615 | INFO |   Downloading: 20260529c.txt
+2026-05-31 10:10:43,068 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:10:43,125 | INFO |   Downloaded 2812 lines
+2026-05-31 10:10:43,163 | INFO |   2026-05-29: 2812 lines -> 106 foreign filings
+2026-05-31 10:10:43,163 | INFO |   Trying: doc/cor/20260528c.txt
+2026-05-31 10:10:43,659 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:10:44,373 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:10:44,609 | INFO | Authentication (password) successful!
+2026-05-31 10:10:45,235 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:10:45,444 | INFO |   Downloading: 20260528c.txt
+2026-05-31 10:10:48,793 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:10:48,846 | INFO |   Downloaded 2717 lines
+2026-05-31 10:10:48,901 | INFO |   2026-05-28: 2717 lines -> 95 foreign filings
+2026-05-31 10:10:48,901 | INFO |   Trying: doc/cor/20260527c.txt
+2026-05-31 10:10:49,347 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:10:50,080 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:10:50,325 | INFO | Authentication (password) successful!
+2026-05-31 10:10:50,995 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:10:51,249 | INFO |   Downloading: 20260527c.txt
+2026-05-31 10:10:54,326 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:10:54,341 | INFO |   Downloaded 2233 lines
+2026-05-31 10:10:54,353 | INFO |   2026-05-27: 2233 lines -> 118 foreign filings
+2026-05-31 10:10:54,353 | INFO |   Trying: doc/cor/20260526c.txt
+2026-05-31 10:10:54,775 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:10:55,443 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:10:55,663 | INFO | Authentication (password) successful!
+2026-05-31 10:10:56,345 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:10:56,547 | INFO |   Downloading: 20260526c.txt
+2026-05-31 10:10:59,451 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:10:59,485 | INFO |   Downloaded 2270 lines
+2026-05-31 10:10:59,517 | INFO |   2026-05-26: 2270 lines -> 74 foreign filings
+2026-05-31 10:10:59,517 | INFO |   Trying: doc/cor/20260525c.txt
+2026-05-31 10:10:59,945 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:11:00,660 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:11:00,890 | INFO | Authentication (password) successful!
+2026-05-31 10:11:01,519 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:11:01,728 | INFO |   Not found: 20260525c.txt (holiday/weekend)
+2026-05-31 10:11:01,729 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:11:01,738 | INFO | Total foreign leads this week: 393
+2026-05-31 10:11:42,104 | INFO | Airtable -> Added: 0 | Skipped: 393
+2026-05-31 10:11:42,104 | INFO | SUCCESS: Sunbiz.org Scraper (Type 2) | Records added: 0
+2026-05-31 10:11:42,112 | INFO | ========== END: Sunbiz.org Scraper (Type 2) ==========
+
+2026-05-31 10:11:42,112 | INFO | --- Starting: Delaware SOS ---
+2026-05-31 10:11:42,112 | INFO | ========== START: Delaware SOS Scraper (Type 3) ==========
+2026-05-31 10:11:42,112 | INFO | Fetching Delaware LLC formations...
+2026-05-31 10:11:44,593 | INFO |   Delaware rows found: -1
+2026-05-31 10:11:44,600 | INFO | Fetching Florida LLC formations from Sunbiz...
+2026-05-31 10:11:45,835 | INFO |   Sunbiz FL LLC error: 403 Client Error: Forbidden for url: https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?SearchTerm=&SearchType=EntityName&SearchStatus=Active&SearchEntityType=FL+LLC&ListPage=1&SearchActionType=GetList
+2026-05-31 10:11:45,835 | INFO | Combined leads before dedup/flagging: 0
+2026-05-31 10:11:45,835 | INFO |   Flagged repeat agents (90-day window): 0
+2026-05-31 10:11:45,835 | INFO | Airtable -> Added: 0 | Skipped: 0
+2026-05-31 10:11:45,835 | INFO | SUCCESS: Delaware SOS Scraper (Type 3) | Records added: 0
+2026-05-31 10:11:45,843 | INFO | ========== END: Delaware SOS Scraper (Type 3) ==========
+
+2026-05-31 10:11:45,843 | INFO | ==================================================
+2026-05-31 10:11:45,843 | INFO | PIPELINE SUMMARY
+2026-05-31 10:11:45,843 | INFO | ==================================================
+2026-05-31 10:11:45,843 | INFO |   SBA.gov: [FAIL] Failed: 
+2026-05-31 10:11:45,843 | INFO |   Sunbiz FL: [OK] Success
+2026-05-31 10:11:45,843 | INFO |   Delaware SOS: [OK] Success
+2026-05-31 10:11:45,843 | INFO | ==================================================
+2026-05-31 10:18:02,505 | INFO | ========== START: SBA.gov Scraper ==========
+2026-05-31 10:18:02,507 | INFO | Downloading SBA CSV...
+2026-05-31 10:19:06,662 | INFO | Total rows in CSV: 373981
+2026-05-31 10:19:09,666 | INFO | Found 1109 records from last 90 days matching $500K+
+2026-05-31 10:29:22,013 | INFO | ========== START: Delaware SOS Scraper (Type 3) ==========
+2026-05-31 10:29:22,013 | INFO | Fetching Delaware LLC formations...
+2026-05-31 10:29:24,090 | INFO |   Delaware rows found: 3
+2026-05-31 10:29:24,820 | INFO | Fetching Florida LLC formations from Sunbiz SFTP...
+2026-05-31 10:29:25,700 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:29:26,489 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:29:26,733 | INFO | Authentication (password) successful!
+2026-05-31 10:29:27,401 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:29:27,616 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:29:28,123 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-05-31 10:29:28,840 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-05-31 10:29:29,063 | INFO | Authentication (password) successful!
+2026-05-31 10:29:29,663 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-05-31 10:29:31,803 | INFO | [chan 0] sftp session closed.
+2026-05-31 10:29:31,811 | INFO |   FL file 20260530c.txt: 372 lines
+2026-05-31 10:29:31,827 | INFO |   Florida LLC leads: 354
+2026-05-31 10:29:31,829 | INFO | Combined before flagging: 354
+2026-05-31 10:29:31,832 | INFO |   Flagged repeat agents: 0
+2026-05-31 10:30:54,599 | INFO | Airtable -> Added: 354 | Skipped: 0
+2026-05-31 10:30:54,599 | INFO | SUCCESS: Delaware SOS Scraper (Type 3) | Records added: 354
+2026-05-31 10:30:54,599 | INFO | ========== END: Delaware SOS Scraper (Type 3) ==========
+
+2026-07-04 11:47:53,280 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-07-04 11:47:53,280 | INFO |   Trying: doc/cor/20260704c.txt
+2026-07-04 11:48:02,954 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-07-04 11:48:03,691 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-07-04 11:48:03,940 | INFO | Authentication (password) successful!
+2026-07-04 11:48:04,647 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-07-04 11:48:04,876 | INFO |   Not found: 20260704c.txt (holiday/weekend)
+2026-07-04 11:48:04,876 | INFO | [chan 0] sftp session closed.
+2026-07-04 11:48:04,883 | INFO |   Trying: doc/cor/20260703c.txt
+2026-07-04 11:48:05,321 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-07-04 11:48:06,013 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-07-04 11:48:06,245 | INFO | Authentication (password) successful!
+2026-07-04 11:48:06,873 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-07-04 11:48:07,091 | INFO |   Not found: 20260703c.txt (holiday/weekend)
+2026-07-04 11:48:07,091 | INFO | [chan 0] sftp session closed.
+2026-07-04 11:48:07,091 | INFO |   Trying: doc/cor/20260702c.txt
+2026-07-04 11:48:07,516 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-07-04 11:48:08,206 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-07-04 11:48:08,457 | INFO | Authentication (password) successful!
+2026-07-04 11:48:09,116 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-07-04 11:48:09,335 | INFO |   Not found: 20260702c.txt (holiday/weekend)
+2026-07-04 11:48:09,335 | INFO | [chan 0] sftp session closed.
+2026-07-04 11:48:09,335 | INFO |   Trying: doc/cor/20260701c.txt
+2026-07-04 11:48:09,778 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-07-04 11:48:10,493 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-07-04 11:48:10,722 | INFO | Authentication (password) successful!
+2026-07-04 11:48:11,388 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-07-04 11:48:11,607 | INFO |   Downloading: 20260701c.txt
+2026-07-04 11:48:14,962 | INFO | [chan 0] sftp session closed.
+2026-07-04 11:48:14,973 | INFO |   Downloaded 2807 lines
+2026-07-04 11:48:14,980 | INFO |   2026-07-01: 2807 lines -> 105 foreign filings
+2026-07-04 11:48:14,980 | INFO |   Trying: doc/cor/20260630c.txt
+2026-07-04 11:48:15,403 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-07-04 11:48:16,091 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-07-04 11:48:16,324 | INFO | Authentication (password) successful!
+2026-07-04 11:48:16,968 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-07-04 11:48:17,187 | INFO |   Downloading: 20260630c.txt
+2026-07-04 11:48:20,275 | INFO | [chan 0] sftp session closed.
+2026-07-04 11:48:20,275 | INFO |   Downloaded 2458 lines
+2026-07-04 11:48:20,294 | INFO |   2026-06-30: 2458 lines -> 104 foreign filings
+2026-07-04 11:48:20,294 | INFO |   Trying: doc/cor/20260629c.txt
+2026-07-04 11:48:20,730 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-07-04 11:48:21,436 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-07-04 11:48:21,688 | INFO | Authentication (password) successful!
+2026-07-04 11:48:22,361 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-07-04 11:48:22,575 | INFO |   Downloading: 20260629c.txt
+2026-07-04 11:48:26,060 | INFO | [chan 0] sftp session closed.
+2026-07-04 11:48:26,078 | INFO |   Downloaded 2649 lines
+2026-07-04 11:48:26,091 | INFO |   2026-06-29: 2649 lines -> 116 foreign filings
+2026-07-04 11:48:26,091 | INFO |   Trying: doc/cor/20260628c.txt
+2026-07-04 11:48:26,528 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-07-04 11:48:27,251 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-07-04 11:48:27,501 | INFO | Authentication (password) successful!
+2026-07-04 11:48:28,176 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-07-04 11:48:28,382 | INFO |   Downloading: 20260628c.txt
+2026-07-04 11:48:29,911 | INFO | [chan 0] sftp session closed.
+2026-07-04 11:48:29,911 | INFO |   Downloaded 49 lines
+2026-07-04 11:48:29,912 | INFO |   2026-06-28: 49 lines -> 0 foreign filings
+2026-07-04 11:48:29,912 | INFO | Total foreign leads this week: 325
+2026-07-04 11:48:50,277 | ERROR | FAILED: Sunbiz.org Scraper (Type 2) | Error: 422 Client Error: Unprocessable Entity for url: https://api.airtable.com/v0/appsNkoJJqzZFfAW1/tblU9q6T3j1pyCWey
+2026-07-04 11:48:50,312 | ERROR | Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\ALL\scrapers\sunbiz_florida\scraper.py", line 158, in run
+    added, skipped = push_leads_batch(leads)
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\ALL\scrapers\sunbiz_florida\..\shared\airtable_client.py", line 89, in push_leads_batch
+    resp.raise_for_status()
+  File "C:\Users\USER\Desktop\ALL\scrapers\venv\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 422 Client Error: Unprocessable Entity for url: https://api.airtable.com/v0/appsNkoJJqzZFfAW1/tblU9q6T3j1pyCWey
+
+2026-07-04 11:48:50,312 | ERROR | ========== END (with errors): Sunbiz.org Scraper (Type 2) ==========
+
+2026-07-04 13:18:19,410 | INFO | ========== START: Sunbiz.org Scraper (Type 2) ==========
+2026-07-04 13:18:19,410 | INFO |   Trying: doc/cor/20260704c.txt
+2026-07-04 13:18:30,329 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-07-04 13:18:31,014 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-07-04 13:18:31,254 | INFO | Authentication (password) successful!
+2026-07-04 13:18:31,886 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-07-04 13:18:32,094 | INFO |   Not found: 20260704c.txt (holiday/weekend)
+2026-07-04 13:18:32,094 | INFO | [chan 0] sftp session closed.
+2026-07-04 13:18:32,094 | INFO |   Trying: doc/cor/20260703c.txt
+2026-07-04 13:18:32,519 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-07-04 13:18:33,223 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-07-04 13:18:33,463 | INFO | Authentication (password) successful!
+2026-07-04 13:18:34,122 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-07-04 13:18:34,346 | INFO |   Not found: 20260703c.txt (holiday/weekend)
+2026-07-04 13:18:34,346 | INFO | [chan 0] sftp session closed.
+2026-07-04 13:18:34,346 | INFO |   Trying: doc/cor/20260702c.txt
+2026-07-04 13:18:34,802 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-07-04 13:18:35,544 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-07-04 13:18:35,796 | INFO | Authentication (password) successful!
+2026-07-04 13:18:36,471 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-07-04 13:18:36,688 | INFO |   Not found: 20260702c.txt (holiday/weekend)
+2026-07-04 13:18:36,688 | INFO | [chan 0] sftp session closed.
+2026-07-04 13:18:36,688 | INFO |   Trying: doc/cor/20260701c.txt
+2026-07-04 13:18:37,138 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-07-04 13:18:37,860 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-07-04 13:18:38,093 | INFO | Authentication (password) successful!
+2026-07-04 13:18:38,777 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-07-04 13:18:38,995 | INFO |   Downloading: 20260701c.txt
+2026-07-04 13:18:42,315 | INFO | [chan 0] sftp session closed.
+2026-07-04 13:18:42,328 | INFO |   Downloaded 2807 lines
+2026-07-04 13:18:42,338 | INFO |   2026-07-01: 2807 lines -> 105 foreign filings
+2026-07-04 13:18:42,338 | INFO |   Trying: doc/cor/20260630c.txt
+2026-07-04 13:18:42,801 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-07-04 13:18:43,550 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-07-04 13:18:43,798 | INFO | Authentication (password) successful!
+2026-07-04 13:18:44,490 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-07-04 13:18:44,719 | INFO |   Downloading: 20260630c.txt
+2026-07-04 13:18:48,119 | INFO | [chan 0] sftp session closed.
+2026-07-04 13:18:48,144 | INFO |   Downloaded 2458 lines
+2026-07-04 13:18:48,153 | INFO |   2026-06-30: 2458 lines -> 104 foreign filings
+2026-07-04 13:18:48,153 | INFO |   Trying: doc/cor/20260629c.txt
+2026-07-04 13:18:48,605 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-07-04 13:18:49,339 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-07-04 13:18:49,584 | INFO | Authentication (password) successful!
+2026-07-04 13:18:50,249 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-07-04 13:18:50,476 | INFO |   Downloading: 20260629c.txt
+2026-07-04 13:18:53,843 | INFO | [chan 0] sftp session closed.
+2026-07-04 13:18:53,865 | INFO |   Downloaded 2649 lines
+2026-07-04 13:18:53,875 | INFO |   2026-06-29: 2649 lines -> 116 foreign filings
+2026-07-04 13:18:53,875 | INFO |   Trying: doc/cor/20260628c.txt
+2026-07-04 13:18:54,318 | INFO | Connected (version 2.0, client VShell_4_9_5_3576)
+2026-07-04 13:18:55,031 | INFO | Auth banner: b'Attention!!\n\n_NOTICE TO USERS_    This computer system is the property of the State of Florida and is maintained by the Department of State only for the use of its employees and other authorized users.  It is for authorized use only.  Users of the system (authorized and unauthorized) have no explicit or implicit expectation of privacy when using this system.   Any and all uses of this system and any or all files on this system, regardless of their nature or purpose, and including, but not\r\nlimited to, E-mail (sent, stored or received) and Internet transmissions, may, at any time and without prior notice, be intercepted, monitored, searched, recorded, copied, inspected, reviewed, blocked, and/or disclosed to Department officials, law enforcement personnel or others in the course of system administration and for the purpose of protecting the system from unauthorized or improper use or criminal activity.  Persons using this system expressly consent to the terms of\r\nuse described herein.  Unauthorized or improper use of this system may result in disciplinary action, up to and including termination of employment.'
+2026-07-04 13:18:55,277 | INFO | Authentication (password) successful!
+2026-07-04 13:18:55,940 | INFO | [chan 0] Opened sftp connection (server version 3)
+2026-07-04 13:18:56,155 | INFO |   Downloading: 20260628c.txt
+2026-07-04 13:18:57,675 | INFO | [chan 0] sftp session closed.
+2026-07-04 13:18:57,677 | INFO |   Downloaded 49 lines
+2026-07-04 13:18:57,678 | INFO |   2026-06-28: 49 lines -> 0 foreign filings
+2026-07-04 13:18:57,678 | INFO | Total foreign leads this week: 325
+2026-07-04 13:19:20,070 | ERROR | FAILED: Sunbiz.org Scraper (Type 2) | Error: 422 Client Error: Unprocessable Entity for url: https://api.airtable.com/v0/appsNkoJJqzZFfAW1/tblU9q6T3j1pyCWey
+2026-07-04 13:19:20,072 | ERROR | Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\ALL\scrapers\sunbiz_florida\scraper.py", line 158, in run
+    added, skipped = push_leads_batch(leads)
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\ALL\scrapers\sunbiz_florida\..\shared\airtable_client.py", line 91, in push_leads_batch
+    resp.raise_for_status()
+  File "C:\Users\USER\Desktop\ALL\scrapers\venv\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 422 Client Error: Unprocessable Entity for url: https://api.airtable.com/v0/appsNkoJJqzZFfAW1/tblU9q6T3j1pyCWey
+
+2026-07-04 13:19:20,072 | ERROR | ========== END (with errors): Sunbiz.org Scraper (Type 2) ==========
+
