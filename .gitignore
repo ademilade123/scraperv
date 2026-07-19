@@ -1,0 +1,10 @@
+.env
+logs/
+__pycache__/
+*.pyc
+debug_*.py  
+_copy.py
+venv/
+.venv/
+env/
+ENV/
