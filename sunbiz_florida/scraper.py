@@ -1,15 +1,24 @@
 """
 Sunbiz.org Scraper - Customer Type 2
 Downloads daily corporate filings from Florida's official SFTP server.
-No scraping needed - official public data with free credentials.
-Filters for foreign qualification filings where jurisdiction is non-US.
+Official public data with free credentials - no web scraping needed.
+Filters for foreign qualification filings (non-US home jurisdiction).
 
-SFTP Credentials (public):
+SFTP (public credentials):
   Host:     sftp.floridados.gov
   Username: Public
   Password: PubAccess1845!
-  Path:     /doc/cor/
+  Path:     doc/cor/
   File:     yyyymmddc.txt (daily corporate filings)
+
+Record layout (verified against live files):
+  pos 0        Record type (L=LLC, P=Profit, N=NonProfit, M=misc)
+  pos 1-11     Document number
+  pos 12-203   Entity name (space padded)
+  pos 204-211  Status code
+                 AFORL / AFORP / AFORNP = Active Foreign (what we want)
+                 AFLAL                  = Active Florida LLC (domestic, skip)
+                 ADOMP / ADOMNP         = Active Domestic (skip)
 """
 
 import sys, os, io
@@ -24,98 +33,106 @@ from shared.airtable_client import push_leads_batch
 
 SCRAPER_NAME = "Sunbiz.org Scraper (Type 2)"
 
-SFTP_HOST    = "sftp.floridados.gov"
-SFTP_USER    = "Public"
-SFTP_PASS    = "PubAccess1845!"
-SFTP_PATH    = "/doc/cor"
+SFTP_HOST = "sftp.floridados.gov"
+SFTP_PORT = 22
+SFTP_USER = "Public"
+SFTP_PASS = "PubAccess1845!"
+SFTP_DIR  = "doc/cor"
 
-# Foreign entity type codes in the Florida data file
-FOREIGN_CODES = {"FP", "FN", "FL"}  # Foreign Profit, Foreign Non-Profit, Foreign LLC
+LOOKBACK_DAYS = 7
 
-US_STATES = {
-    "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID",
-    "IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS",
-    "MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK",
-    "OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV",
-    "WI","WY","DC","US","USA"
-}
+# Status codes that mark an active FOREIGN filing
+FOREIGN_STATUS_CODES = ("AFORL", "AFORP", "AFORNP", "AFOR")
 
+# Status codes that may trail the entity name and need stripping
+ALL_STATUS_CODES = (
+    "AFORNP", "ADOMNP", "AFORL", "AFORP", "AFLAL",
+    "ADOMP", "AFOR", "ADOM",
+)
 
-def is_foreign_jurisdiction(state_code: str) -> bool:
-    return state_code.upper().strip() not in US_STATES and len(state_code.strip()) > 0
+# Name field boundaries
+NAME_START   = 12
+NAME_END     = 204
+STATUS_START = 204
+STATUS_END   = 212
+MIN_LINE_LEN = 212
 
 
 def get_daily_filename(date: datetime) -> str:
     return f"{date.strftime('%Y%m%d')}c.txt"
 
 
-def download_daily_file(date: datetime) -> list[str] | None:
-    """Download daily corporate filings file via SFTP (paramiko)."""
+def clean_entity_name(raw: str) -> str:
+    """Strip whitespace and any trailing status code fragment."""
+    name = raw.strip()
+    for code in ALL_STATUS_CODES:
+        if name.endswith(code):
+            name = name[: -len(code)].strip()
+            break
+    return name
+
+
+def download_daily_file(date: datetime) -> tuple:
+    """
+    Fetch one daily file over SFTP.
+
+    Returns (lines, outcome) where outcome is one of:
+      "ok"      - file downloaded
+      "missing" - server reachable, file not there (weekend/holiday)
+      "error"   - could not reach or read the server
+    """
     filename    = get_daily_filename(date)
-    # Files live directly in doc/cor/ — no year subfolder
-    remote_path = f"doc/cor/{filename}"
+    remote_path = f"{SFTP_DIR}/{filename}"
     log_info(f"  Trying: {remote_path}")
 
+    transport = None
     try:
-        transport = paramiko.Transport((SFTP_HOST, 22))
+        transport = paramiko.Transport((SFTP_HOST, SFTP_PORT))
         transport.connect(username=SFTP_USER, password=SFTP_PASS)
         sftp = paramiko.SFTPClient.from_transport(transport)
 
         try:
             sftp.stat(remote_path)
         except FileNotFoundError:
-            log_info(f"  Not found: {filename} (holiday/weekend)")
+            log_info(f"  Not found: {filename} (weekend/holiday)")
             sftp.close()
-            transport.close()
-            return None
+            return None, "missing"
 
         log_info(f"  Downloading: {filename}")
         buffer = io.BytesIO()
         sftp.getfo(remote_path, buffer)
         sftp.close()
-        transport.close()
 
-        content = buffer.getvalue().decode("latin-1")
-        lines   = content.splitlines()
+        lines = buffer.getvalue().decode("latin-1").splitlines()
         log_info(f"  Downloaded {len(lines)} lines")
-        return lines
+        return lines, "ok"
 
     except Exception as e:
         log_info(f"  SFTP error: {e}")
-        return None
+        return None, "error"
+
+    finally:
+        if transport is not None:
+            try:
+                transport.close()
+            except Exception:
+                pass
 
 
-def parse_corporate_file(lines: list[str], date: datetime) -> list[dict]:
-    """
-    Parse Florida corporate filing records.
-    Confirmed format:
-      pos 0:      Record type (L=LLC, P=Profit, N=NonProfit)
-      pos 1-12:   Document Number
-      pos 13-212: Entity Name (200 chars)
-      pos 204-212: Status code
-        AFORL = Active Foreign LLC
-        AFORP = Active Foreign Profit
-        AFORNP = Active Foreign Non-Profit
-        AFLAL = Active FL LLC (domestic)
-        ADOMP = Active Domestic Profit (skip)
-    """
-    FOREIGN_CODES = {"AFORL", "AFORP", "AFORNP", "AFOR"}
+def parse_corporate_file(lines: list, date: datetime) -> list:
+    """Extract active foreign filings from one daily file."""
     leads    = []
     date_str = date.strftime("%Y-%m-%d")
 
     for line in lines:
-        if len(line) < 220:
+        if len(line) < MIN_LINE_LEN:
             continue
 
-        status = line[204:212].strip()
-
-        # Only keep foreign filings
-        if not any(status.startswith(code) for code in FOREIGN_CODES):
+        status = line[STATUS_START:STATUS_END].strip()
+        if not status.startswith(FOREIGN_STATUS_CODES):
             continue
 
-        doc_number  = line[1:13].strip()
-        entity_name = line[13:213].strip()
-
+        entity_name = clean_entity_name(line[NAME_START:NAME_END])
         if not entity_name:
             continue
 
@@ -133,19 +150,39 @@ def parse_corporate_file(lines: list[str], date: datetime) -> list[dict]:
     return leads
 
 
-def scrape_sunbiz() -> list[dict]:
-    """Try last 7 days and collect ALL foreign filings found."""
-    all_leads = []
+def scrape_sunbiz() -> list:
+    """
+    Walk back LOOKBACK_DAYS and collect every foreign filing found.
 
-    for days_back in range(7):
-        date  = datetime.today() - timedelta(days=days_back)
-        lines = download_daily_file(date)
+    Raises if no file could be downloaded at all - that means a
+    connectivity or credential problem, not a quiet week, and must
+    not be reported as a successful run.
+    """
+    all_leads  = []
+    downloaded = 0
+    errors     = 0
 
-        if lines:
+    for days_back in range(LOOKBACK_DAYS):
+        date           = datetime.today() - timedelta(days=days_back)
+        lines, outcome = download_daily_file(date)
+
+        if outcome == "error":
+            errors += 1
+        elif outcome == "ok" and lines:
+            downloaded += 1
             leads = parse_corporate_file(lines, date)
             log_info(f"  {date.strftime('%Y-%m-%d')}: {len(lines)} lines -> {len(leads)} foreign filings")
             all_leads.extend(leads)
-            # Don't break — collect all days this week
+
+    if downloaded == 0:
+        raise RuntimeError(
+            f"No Sunbiz files downloaded in the last {LOOKBACK_DAYS} days "
+            f"({errors} connection errors). Check SFTP connectivity to "
+            f"{SFTP_HOST}:{SFTP_PORT} and that outbound port 22 is permitted."
+        )
+
+    if errors:
+        log_info(f"  WARNING: {errors} of {LOOKBACK_DAYS} days failed to download")
 
     log_info(f"Total foreign leads this week: {len(all_leads)}")
     return all_leads
@@ -161,6 +198,7 @@ def run():
     except Exception as e:
         log_run_failure(SCRAPER_NAME, e)
         raise
+
 
 if __name__ == "__main__":
     run()
