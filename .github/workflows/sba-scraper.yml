@@ -40,5 +40,5 @@ jobs:
       - name: Run SBA scraper
         env:
           AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
-        run: python probe_sba.py
+        run: python sba_gov/scraper.py
         
