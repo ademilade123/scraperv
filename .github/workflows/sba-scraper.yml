@@ -41,3 +41,4 @@ jobs:
         env:
           AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
         run: python probe_sba.py
+        
