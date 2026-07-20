@@ -1,52 +1,47 @@
 """
-Probe SBA datastore API from PythonAnywhere.
-Tries the JSON API instead of the CSV file download.
+Probe the SBA download endpoints WITHOUT a filename, plus the
+resource-page scrape. Run this in the GitHub Action (or anywhere
+that can reach data.sba.gov) to find a URL that actually returns CSV.
 """
-import requests
-import json
-
-RESOURCE_ID = "d67d3ccb-2002-4134-a288-481b51cd3479"
+import requests, re
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-    "Accept": "application/json",
+    "Accept": "*/*",
 }
 
-# A few endpoint variants to see which the edge serves correctly
-urls = [
-    ("datastore /en/", f"https://data.sba.gov/en/api/3/action/datastore_search?resource_id={RESOURCE_ID}&limit=2"),
-    ("datastore no /en/", f"https://data.sba.gov/api/3/action/datastore_search?resource_id={RESOURCE_ID}&limit=2"),
-    ("package_show /en/", "https://data.sba.gov/en/api/3/action/package_show?id=7-a-504-foia"),
-    ("package_show no /en/", "https://data.sba.gov/api/3/action/package_show?id=7-a-504-foia"),
+DATASET_ID  = "0ff8e8e9-b967-4f4e-987c-6ac78c575087"
+RESOURCE_ID = "d67d3ccb-2002-4134-a288-481b51cd3479"
+
+candidates = [
+    ("bare /download no filename",
+     f"https://data.sba.gov/dataset/{DATASET_ID}/resource/{RESOURCE_ID}/download"),
+    ("bare /download /en/",
+     f"https://data.sba.gov/en/dataset/{DATASET_ID}/resource/{RESOURCE_ID}/download"),
+    ("known older file 250331",
+     f"https://data.sba.gov/dataset/{DATASET_ID}/resource/{RESOURCE_ID}/download/foia-7a-fy2020-present-asof-250331.csv"),
+    ("resource page (scrape for link)",
+     f"https://data.sba.gov/dataset/{DATASET_ID}/resource/{RESOURCE_ID}"),
 ]
 
-for label, url in urls:
+for label, url in candidates:
     print("=" * 60)
     print(label)
     print(url)
     try:
-        r = requests.get(url, headers=HEADERS, timeout=60)
+        r = requests.get(url, headers=HEADERS, timeout=90, allow_redirects=True)
         print(f"  Status: {r.status_code}")
-        if r.status_code == 200:
-            data = r.json()
-            result = data.get("result", {})
-            # datastore_search returns records + the resource_id it actually served
-            served_rid = result.get("resource_id")
-            if served_rid:
-                match = "MATCH" if served_rid == RESOURCE_ID else "WRONG RESOURCE (cache poisoned)"
-                print(f"  Served resource_id: {served_rid}  [{match}]")
-                recs = result.get("records", [])
-                print(f"  Records returned: {len(recs)}")
-                if recs:
-                    # show the field names so we know it's the loan data
-                    print(f"  Fields: {list(recs[0].keys())[:8]}")
-            # package_show returns resources list
-            resources = result.get("resources")
-            if resources:
-                print(f"  Resources in package: {len(resources)}")
-                for res in resources:
-                    if res.get("id") == RESOURCE_ID:
-                        print(f"    FY2020 file URL: {res.get('url')}")
+        print(f"  Final URL: {r.url}")
+        ct = r.headers.get("Content-Type", "?")
+        print(f"  Content-Type: {ct}  Size: {len(r.content)}")
+        if r.status_code == 200 and ("csv" in ct.lower() or "," in r.text[:200]):
+            print(f"  FIRST LINE: {r.text.splitlines()[0][:120]}")
+            print("  >>> THIS ONE WORKS <<<")
+        elif r.status_code == 200 and "html" in ct.lower():
+            # scrape any csv download link off the resource page
+            links = re.findall(r'(https?://[^"\s]*foia-7a[^"\s]*\.csv)', r.text, re.I)
+            for l in sorted(set(links)):
+                print(f"    found link: {l}")
     except Exception as e:
         print(f"  FAILED: {e}")
     print()
