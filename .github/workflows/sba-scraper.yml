@@ -1,0 +1,43 @@
+# GitHub Actions workflow — runs the SBA scraper on a schedule.
+#
+# Why this exists: SBA's data host (Akamai CDN) blocks the PythonAnywhere
+# server's IP range, so the SBA scraper can't run there. GitHub's runners
+# use different IPs that SBA does not block, so this scraper runs here
+# instead. Sunbiz and Delaware continue to run on PythonAnywhere.
+#
+# Setup required (one time):
+#   In the GitHub repo: Settings -> Secrets and variables -> Actions
+#   -> New repository secret
+#     Name:  AIRTABLE_TOKEN
+#     Value: <the Airtable personal access token>
+
+name: SBA Scraper
+
+on:
+  schedule:
+    # Runs at 08:00 UTC every Monday. Cron is always UTC on GitHub.
+    - cron: "0 8 * * 1"
+  # Lets you trigger it by hand from the Actions tab for testing.
+  workflow_dispatch:
+
+jobs:
+  run-sba-scraper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run SBA scraper
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+        run: python sba_gov/scraper.py
