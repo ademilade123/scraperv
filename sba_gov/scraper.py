@@ -3,17 +3,19 @@ SBA.gov Scraper - Customer Type 1
 Pulls SBA 7(a) loan approvals filtered by loan size ($500K+),
 last 90 days only.
 
-SBA refreshes the FOIA files quarterly and the download filename
-carries the "as of" date (e.g. ...asof-260331.csv), so any hardcoded
-URL 404s after each refresh. To survive that, we scrape the dataset
-landing page and pull the current FY2020-Present download link by its
-stable resource ID, then download whatever file it points to.
+Key detail learned the hard way:
+  - Use the PLAIN path (no /en/). The localized /en/ download path
+    404s for direct requests; the plain path works.
+  - The download FILENAME changes every quarter (as-of-251231 ->
+    asof-250331 -> ...), but the RESOURCE ID is stable. The bare
+    /download endpoint (no filename) redirects to the current file,
+    so we try that first and fall back to dated filenames only if
+    it fails.
 """
 
 import requests
 import csv
 import io
-import re
 import sys, os
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
@@ -25,28 +27,30 @@ from shared.airtable_client import push_leads_batch
 
 SCRAPER_NAME = "SBA.gov Scraper"
 
-# Dataset landing page (CKAN). Stable.
-SBA_DATASET_PAGE = "https://data.sba.gov/en/dataset/7-a-504-foia"
+# Stable identifiers - these do NOT change across quarterly refreshes.
+DATASET_ID  = "0ff8e8e9-b967-4f4e-987c-6ac78c575087"
+RESOURCE_ID = "d67d3ccb-2002-4134-a288-481b51cd3479"
 
-# Stable resource ID for the 7(a) FY2020-Present file. The filename
-# changes each quarter but this ID does not.
-SBA_RESOURCE_ID = "d67d3ccb-2002-4134-a288-481b51cd3479"
-
-# Last-resort direct URL if page scraping fails. Update the date if
-# SBA ever changes the pattern again.
-SBA_FALLBACK_URL = (
-    "https://data.sba.gov/en/dataset/0ff8e8e9-b967-4f4e-987c-6ac78c575087"
-    f"/resource/{SBA_RESOURCE_ID}"
-    "/download/foia-7a-fy2020-present-asof-260331.csv"
-)
+# Plain host path (NO /en/). Ordered list of URLs to try in turn.
+BASE = f"https://data.sba.gov/dataset/{DATASET_ID}/resource/{RESOURCE_ID}/download"
+CANDIDATE_URLS = [
+    # Filename-free endpoint - CKAN serves the current file whatever
+    # it's named. Best option; survives quarterly renames.
+    BASE,
+    # Dated fallbacks in case the bare endpoint doesn't redirect.
+    f"{BASE}/foia-7a-fy2020-present-asof-260331.csv",
+    f"{BASE}/foia-7a-fy2020-present-asof-250331.csv",
+    f"{BASE}/foia-7a-fy2020-present-as-of-251231.csv",
+]
 
 HEADERS_HTTP = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-    "Referer":    "https://data.sba.gov/",
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+    "Accept": "text/csv,*/*",
+    "Referer": "https://data.sba.gov/",
 }
 
 MIN_LOAN_AMOUNT = 500_000
-CUTOFF_DATE     = datetime.today() - timedelta(days=90)  # last 90 days only
+CUTOFF_DATE     = datetime.today() - timedelta(days=90)
 
 
 def parse_amount(value: str) -> float:
@@ -65,45 +69,38 @@ def parse_date(date_str: str):
     return None
 
 
-def resolve_csv_url() -> str:
+def download_csv_text() -> str:
     """
-    Scrape the dataset page for the current FY2020-Present download
-    link, matched by the stable resource ID. Falls back to the
-    hardcoded URL if scraping fails.
+    Try each candidate URL until one returns CSV content.
+    Raises if none work.
     """
-    try:
-        log_info("Resolving current SBA file from dataset page...")
-        resp = requests.get(SBA_DATASET_PAGE, headers=HEADERS_HTTP, timeout=60)
-        resp.raise_for_status()
+    last_status = None
+    for url in CANDIDATE_URLS:
+        try:
+            log_info(f"Trying: {url}")
+            resp = requests.get(url, headers=HEADERS_HTTP, timeout=120,
+                                allow_redirects=True)
+            last_status = resp.status_code
+            if resp.status_code == 200 and resp.text and "," in resp.text[:500]:
+                log_info(f"  OK ({len(resp.content)} bytes) via {resp.url}")
+                return resp.text
+            log_info(f"  Skipped (status {resp.status_code})")
+        except Exception as e:
+            log_info(f"  Error: {e}")
 
-        # Find the download link that includes our resource ID.
-        pattern = rf'href="([^"]*{re.escape(SBA_RESOURCE_ID)}/download/[^"]+\.csv)"'
-        matches = re.findall(pattern, resp.text, re.I)
-
-        if matches:
-            url = matches[0]
-            if url.startswith("/"):
-                url = "https://data.sba.gov" + url
-            log_info(f"Resolved current file: {url}")
-            return url
-
-        log_info("Resource link not found on page; using fallback URL.")
-    except Exception as e:
-        log_info(f"Page scrape failed ({e}); using fallback URL.")
-
-    return SBA_FALLBACK_URL
+    raise RuntimeError(
+        f"Could not download SBA CSV from any known URL "
+        f"(last status {last_status}). SBA may have changed the "
+        f"file path again - check data.sba.gov for the current link."
+    )
 
 
 def scrape_sba() -> list:
-    csv_url = resolve_csv_url()
-
     log_info("Downloading SBA CSV...")
-    resp = requests.get(csv_url, headers=HEADERS_HTTP, timeout=120)
-    resp.raise_for_status()
+    text = download_csv_text()
 
-    rows = list(csv.DictReader(io.StringIO(resp.text)))
+    rows = list(csv.DictReader(io.StringIO(text)))
     log_info(f"Total rows in CSV: {len(rows)}")
-
     if not rows:
         raise RuntimeError("SBA CSV downloaded but contained no rows.")
 
