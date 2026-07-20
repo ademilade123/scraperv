@@ -1,47 +1,36 @@
-"""
-Probe the SBA download endpoints WITHOUT a filename, plus the
-resource-page scrape. Run this in the GitHub Action (or anywhere
-that can reach data.sba.gov) to find a URL that actually returns CSV.
-"""
-import requests, re
+"""Check the SBA CSV's date column and date range."""
+import requests, csv, io
+from datetime import datetime
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-    "Accept": "*/*",
-}
+URL = ("https://data.sba.gov/sites/default/files/uploaded_resources/"
+       "FOIA_7a_FY2020_Present_asof_260331.csv")
+HEADERS = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"}
 
-DATASET_ID  = "0ff8e8e9-b967-4f4e-987c-6ac78c575087"
-RESOURCE_ID = "d67d3ccb-2002-4134-a288-481b51cd3479"
+print("Downloading...")
+r = requests.get(URL, headers=HEADERS, timeout=180)
+r.raise_for_status()
+rows = list(csv.DictReader(io.StringIO(r.text)))
+print(f"Rows: {len(rows)}")
+print(f"Columns: {list(rows[0].keys())}")
+print()
 
-candidates = [
-    ("bare /download no filename",
-     f"https://data.sba.gov/dataset/{DATASET_ID}/resource/{RESOURCE_ID}/download"),
-    ("bare /download /en/",
-     f"https://data.sba.gov/en/dataset/{DATASET_ID}/resource/{RESOURCE_ID}/download"),
-    ("known older file 250331",
-     f"https://data.sba.gov/dataset/{DATASET_ID}/resource/{RESOURCE_ID}/download/foia-7a-fy2020-present-asof-250331.csv"),
-    ("resource page (scrape for link)",
-     f"https://data.sba.gov/dataset/{DATASET_ID}/resource/{RESOURCE_ID}"),
-]
+# show sample approvaldate values
+print("Sample approvaldate values:")
+for row in rows[:5]:
+    print(f"  '{row.get('approvaldate')}'  gross='{row.get('grossapproval')}'")
 
-for label, url in candidates:
-    print("=" * 60)
-    print(label)
-    print(url)
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=90, allow_redirects=True)
-        print(f"  Status: {r.status_code}")
-        print(f"  Final URL: {r.url}")
-        ct = r.headers.get("Content-Type", "?")
-        print(f"  Content-Type: {ct}  Size: {len(r.content)}")
-        if r.status_code == 200 and ("csv" in ct.lower() or "," in r.text[:200]):
-            print(f"  FIRST LINE: {r.text.splitlines()[0][:120]}")
-            print("  >>> THIS ONE WORKS <<<")
-        elif r.status_code == 200 and "html" in ct.lower():
-            # scrape any csv download link off the resource page
-            links = re.findall(r'(https?://[^"\s]*foia-7a[^"\s]*\.csv)', r.text, re.I)
-            for l in sorted(set(links)):
-                print(f"    found link: {l}")
-    except Exception as e:
-        print(f"  FAILED: {e}")
-    print()
+# find the newest approval date in the file
+def pd(s):
+    for fmt in ("%m/%d/%Y", "%Y-%m-%d", "%m-%d-%Y"):
+        try: return datetime.strptime(s.strip(), fmt)
+        except: pass
+    return None
+
+dates = [pd(r.get("approvaldate","")) for r in rows]
+dates = [d for d in dates if d]
+if dates:
+    print(f"\nOldest approval date: {min(dates).date()}")
+    print(f"Newest approval date: {max(dates).date()}")
+    print(f"Today: {datetime.today().date()}")
+    days_old = (datetime.today() - max(dates)).days
+    print(f"Newest record is {days_old} days old")
