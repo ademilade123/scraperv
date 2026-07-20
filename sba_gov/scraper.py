@@ -47,7 +47,13 @@ HEADERS_HTTP = {
 }
 
 MIN_LOAN_AMOUNT = 500_000
-CUTOFF_DATE     = datetime.today() - timedelta(days=90)
+
+# SBA publishes QUARTERLY and the file lags ~1 month behind quarter-end,
+# so the newest records are often 100-130 days old. A 90-day window
+# (fine for the daily-updated sources) would catch nothing here, so we
+# use 180 days to reliably capture each quarterly publish.
+LOOKBACK_DAYS   = 180
+CUTOFF_DATE     = datetime.today() - timedelta(days=LOOKBACK_DAYS)
 
 
 def parse_amount(value: str) -> float:
@@ -143,7 +149,7 @@ def scrape_sba() -> list:
             "Outreach Status":   "Pending",
         })
 
-    log_info(f"Found {len(leads)} records from last 90 days matching $500K+")
+    log_info(f"Found {len(leads)} records from last {LOOKBACK_DAYS} days matching $500K+")
     return leads
 
 
