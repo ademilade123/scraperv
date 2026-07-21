@@ -1,7 +1,11 @@
 """
-Master Runner — runs all 3 scrapers in sequence.
-This is the only file scheduled on PythonAnywhere.
-Scheduled daily; only does real work on Mondays.
+Master Runner — runs the PythonAnywhere scrapers in sequence.
+Scheduled daily on PythonAnywhere; only does real work on Mondays.
+
+NOTE: The SBA scraper is NOT run here. SBA's data host (Akamai) blocks
+PythonAnywhere's IP range, so SBA runs separately on GitHub Actions.
+This runner covers the sources PythonAnywhere can reach: Sunbiz (FL)
+and Delaware.
 """
 
 import sys, os
@@ -13,12 +17,10 @@ load_dotenv()
 
 from shared.logger import log_info, log_run_start, log_run_success, log_run_failure
 
-import sba_gov.scraper        as sba
 import sunbiz_florida.scraper as sunbiz
 import delaware_sos.scraper   as delaware
 
 SCRAPERS = [
-    ("SBA.gov",      sba.run),
     ("Sunbiz FL",    sunbiz.run),
     ("Delaware SOS", delaware.run),
 ]
