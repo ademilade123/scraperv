@@ -1,12 +1,23 @@
 """
 Delaware Secretary of State Scraper - Customer Type 3
-Scrapes new LLC formations from Delaware's ICIS portal.
-Flags when same registered agent appears across multiple filings within 90 days.
-Combined with Florida LLC data from the Sunbiz SFTP.
+Combined new-LLC-formation source for Type 3.
+
+NOTE on Delaware: Delaware's public portal (icis.corp.delaware.gov)
+requires a specific entity name or file number to return anything -
+there is no way to list new formations, no date filter, no bulk data
+or API, and it prohibits automated searches. So the Delaware half
+returns little/nothing; Type 3 is effectively carried by the Florida
+LLC data below (formations + registered agents), which is complete.
+
+NAME PARSING (important): the FL fixed-width record puts the entity
+name at columns 12-203 and an 8-char status code at 204-211. The name
+must start at 12 (not 13, which drops the first letter) and any trailing
+status code (AFLAL etc.) must be stripped, or it leaks into the company
+name (e.g. "JUNTS LLC ... AFLAL").
 """
 
 import requests
-import sys, os, time
+import sys, os
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
@@ -27,79 +38,82 @@ HEADERS_HTTP  = {
     "Referer":         "https://icis.corp.delaware.gov/",
 }
 
-NINETY_DAYS = timedelta(days=90)
-CUTOFF_DATE = datetime.today() - NINETY_DAYS
+# FL fixed-width record layout (matches the Sunbiz Type 2 scraper)
+NAME_START   = 12
+NAME_END     = 204
+STATUS_START = 204
+STATUS_END   = 212
+MIN_LINE_LEN = 212
 
-# ── Delaware scraper ──────────────────────────────────────────
-def scrape_delaware() -> list[dict]:
+# Status codes that may trail the name and must be stripped
+ALL_STATUS_CODES = (
+    "AFORNP", "ADOMNP", "AFORL", "AFORP", "AFLAL",
+    "ADOMP", "AFOR", "ADOM",
+)
+
+
+def clean_entity_name(raw: str) -> str:
+    """Strip whitespace and any trailing status-code fragment."""
+    name = raw.strip()
+    for code in ALL_STATUS_CODES:
+        if name.endswith(code):
+            name = name[: -len(code)].strip()
+            break
+    return name
+
+
+# ── Delaware scraper (kept, but see NOTE above - yields ~nothing) ──
+def scrape_delaware() -> list:
     log_info("Fetching Delaware LLC formations...")
     leads   = []
     session = requests.Session()
     session.headers.update(HEADERS_HTTP)
 
     try:
-        # Get initial page for form tokens
         resp = session.get(DE_SEARCH_URL, timeout=30)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
 
-        # Extract ASP.NET form tokens
-        viewstate    = soup.find("input", {"id": "__VIEWSTATE"})
-        eventval     = soup.find("input", {"id": "__EVENTVALIDATION"})
-        viewstategen = soup.find("input", {"id": "__VIEWSTATEGENERATOR"})
+        def val(el_id):
+            el = soup.find("input", {"id": el_id})
+            return el["value"] if el and el.has_attr("value") else ""
 
-        vs_val  = viewstate["value"]    if viewstate    else ""
-        ev_val  = eventval["value"]     if eventval     else ""
-        vsg_val = viewstategen["value"] if viewstategen else ""
-
-        # Search for LLC entities (blank name = all)
         post_data = {
-            "__VIEWSTATE":                                                vs_val,
-            "__EVENTVALIDATION":                                          ev_val,
-            "__VIEWSTATEGENERATOR":                                       vsg_val,
-            "ctl00$ContentPlaceHolder1$txtEntityName":                    "",
-            "ctl00$ContentPlaceHolder1$ddlSearchType":                    "BeginsWith",
-            "ctl00$ContentPlaceHolder1$ddlEntityKind":                    "LLC",
-            "ctl00$ContentPlaceHolder1$ddlEntityType":                    "D",
-            "ctl00$ContentPlaceHolder1$btnSearch":                        "Search",
+            "__VIEWSTATE":            val("__VIEWSTATE"),
+            "__EVENTVALIDATION":      val("__EVENTVALIDATION"),
+            "__VIEWSTATEGENERATOR":   val("__VIEWSTATEGENERATOR"),
+            "ctl00$ContentPlaceHolder1$txtEntityName":  "",
+            "ctl00$ContentPlaceHolder1$ddlSearchType":  "BeginsWith",
+            "ctl00$ContentPlaceHolder1$ddlEntityKind":  "LLC",
+            "ctl00$ContentPlaceHolder1$ddlEntityType":  "D",
+            "ctl00$ContentPlaceHolder1$btnSearch":      "Search",
         }
 
         search_resp = session.post(DE_SEARCH_URL, data=post_data, timeout=30)
         search_resp.raise_for_status()
         search_soup = BeautifulSoup(search_resp.text, "html.parser")
 
-        # Find results table
         table = search_soup.find("table", {"id": lambda x: x and "grd" in x.lower()})
         if not table:
-            # Try any table with results
             tables = search_soup.find_all("table")
             table  = tables[-1] if tables else None
-
         if not table:
             log_info("  No results table found on Delaware page")
             return []
 
-        rows = table.find_all("tr")[1:]  # skip header
+        rows = table.find_all("tr")[1:]
         log_info(f"  Delaware rows found: {len(rows)}")
 
         for row in rows:
             cols = row.find_all("td")
             if len(cols) < 2:
                 continue
-
-            name        = cols[0].get_text(strip=True)
-            file_number = cols[1].get_text(strip=True)
-            entity_type = cols[2].get_text(strip=True) if len(cols) > 2 else ""
-            status      = cols[3].get_text(strip=True) if len(cols) > 3 else ""
-
+            name = cols[0].get_text(strip=True)
             if not name:
                 continue
-
             leads.append({
                 "name":        name,
-                "file_number": file_number,
-                "entity_type": entity_type,
-                "status":      status,
+                "file_number": cols[1].get_text(strip=True),
                 "state":       "DE",
                 "reg_agent":   "",
                 "filing_date": datetime.today().strftime("%Y-%m-%d"),
@@ -111,9 +125,9 @@ def scrape_delaware() -> list[dict]:
     return leads
 
 
-# ── Florida LLC from SFTP (reuse same credentials as Type 2) ──
-def scrape_florida_llcs() -> list[dict]:
-    """Pull FL domestic LLC formations from Sunbiz SFTP — same file as Type 2."""
+# ── Florida LLC from SFTP (same file as Type 2) ──
+def scrape_florida_llcs() -> list:
+    """Pull FL domestic LLC formations from Sunbiz SFTP."""
     import paramiko
     import io
 
@@ -128,6 +142,7 @@ def scrape_florida_llcs() -> list[dict]:
         date     = datetime.today() - timedelta(days=days_back)
         filename = date.strftime("%Y%m%d") + "c.txt"
         path     = f"doc/cor/{filename}"
+        transport = None
 
         try:
             transport = paramiko.Transport((SFTP_HOST, 22))
@@ -138,67 +153,64 @@ def scrape_florida_llcs() -> list[dict]:
                 sftp.stat(path)
             except FileNotFoundError:
                 sftp.close()
-                transport.close()
                 continue
 
             buffer = io.BytesIO()
             sftp.getfo(path, buffer)
             sftp.close()
-            transport.close()
 
             lines = buffer.getvalue().decode("latin-1").splitlines()
             log_info(f"  FL file {filename}: {len(lines)} lines")
 
             for line in lines:
-                if len(line) < 220:
+                if len(line) < MIN_LINE_LEN:
                     continue
-                status = line[204:212].strip()
+                status = line[STATUS_START:STATUS_END].strip()
                 # AFLAL = Active Florida LLC (domestic)
                 if status != "AFLAL":
                     continue
-                name = line[13:213].strip()
+                # start at 12, and strip any trailing status code
+                name = clean_entity_name(line[NAME_START:NAME_END])
                 if not name:
                     continue
                 leads.append({
                     "name":        name,
-                    "file_number": line[1:13].strip(),
-                    "entity_type": "FL LLC",
-                    "status":      status,
+                    "file_number": line[1:12].strip(),
                     "state":       "FL",
                     "reg_agent":   "",
                     "filing_date": date.strftime("%Y-%m-%d"),
                 })
 
-            break  # use most recent file only for FL
+            break  # most recent FL file only
 
         except Exception as e:
             log_info(f"  FL SFTP error for {filename}: {e}")
+        finally:
+            if transport is not None:
+                try:
+                    transport.close()
+                except Exception:
+                    pass
 
     log_info(f"  Florida LLC leads: {len(leads)}")
     return leads
 
 
-# ── Flag repeat registered agents ─────────────────────────────
-def flag_repeat_agents(leads: list[dict]) -> list[dict]:
-    """Flag leads where same registered agent filed 2+ LLCs in 90 days."""
+def flag_repeat_agents(leads: list) -> list:
+    """Flag leads where the same registered agent filed 2+ LLCs."""
     agent_map = defaultdict(list)
-
     for lead in leads:
         agent = lead.get("reg_agent", "").strip().upper()
         if agent:
             agent_map[agent].append(lead)
-
-    flagged = {a for a, filings in agent_map.items() if len(filings) >= 2}
+    flagged = {a for a, f in agent_map.items() if len(f) >= 2}
     log_info(f"  Flagged repeat agents: {len(flagged)}")
-
     for lead in leads:
         agent = lead.get("reg_agent", "").strip().upper()
         lead["flagged"] = agent in flagged
-
     return leads
 
 
-# ── Format for Airtable ───────────────────────────────────────
 def format_lead(raw: dict) -> dict:
     return {
         "Company Name":      raw.get("name", ""),
@@ -212,7 +224,6 @@ def format_lead(raw: dict) -> dict:
     }
 
 
-# ── Main ──────────────────────────────────────────────────────
 def run():
     log_run_start(SCRAPER_NAME)
     try:
@@ -232,6 +243,7 @@ def run():
     except Exception as e:
         log_run_failure(SCRAPER_NAME, e)
         raise
+
 
 if __name__ == "__main__":
     run()
